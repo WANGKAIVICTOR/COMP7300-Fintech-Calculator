@@ -1,4 +1,17 @@
 import math
+import finnhub
+import configparser
+config = configparser.ConfigParser()
+config.read('config.ini', encoding='utf-8')
+
+
+def market_news(category="forex"):
+    """
+    This parameter can be 1 of the following values general, forex, crypto, merger.
+    """
+    finnhub_client = finnhub.Client(
+        api_key=config["FINNHUB"]["KEY"])
+    return finnhub_client.general_news(category, min_id=0)
 
 
 def kelly(b, p, q):

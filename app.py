@@ -32,6 +32,20 @@ def handle_exception(e):
     return response
 
 
+@app.route('/market-news', methods=['GET'])
+def market_news():
+    try:
+        category = request.args.get("category")
+        value = functions.market_news(
+            category
+        )
+        # freeze json response without sorting
+        return Response(json.dumps(value), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+
 @app.route('/kelly', methods=['GET'])
 def kelly():
     try:
