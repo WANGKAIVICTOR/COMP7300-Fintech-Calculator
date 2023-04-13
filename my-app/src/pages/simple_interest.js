@@ -18,7 +18,7 @@ function Kellys(){
     // }
     const handleSubmit =  () => {
       // event.preventDefault();
-      fetch(`http://127.0.0.1:8000/compound?k=${k}&y=${y}&m=${m}&d=${d}&i=${i}`,{mode: 'cors'})
+      fetch(`http://127.0.0.1:8000/simple?k=${k}&y=${y}&m=${m}&d=${d}&i=${i}`,{mode: 'cors'})
       .then(response => response.json())
       .then(data => {
       console.log(data);
@@ -34,6 +34,8 @@ function Kellys(){
 
     return (
     <div className="login">
+        <h1 className="title">simple</h1>
+
       <Card className="calculator-container">
           <h1 className="title">参数设置</h1>
           <Form validateTrigger={['onBlur', 'onChange']}
@@ -71,9 +73,6 @@ function Kellys(){
         </Form.Item>
       </div>
       
-
-
-
       <div className='input-container'>
       <div className='para-test'>Year</div>
       <Form.Item
@@ -204,18 +203,19 @@ function Kellys(){
             <h1 className="title">Discribtion</h1>
             <div className='input-container'>
                 <div>
-                    复利就是复合利息，它是指每年的收益还可以产生收益，具体是将整个借贷期限分割为若干段，\n
-                    前一段按本金计算出的利息要加入到本金中，形成增大了的本金，作为下一段计算利息的本金基数，
-                    直到每一段的利息都计算出来，加总之后，就得出整个借贷期内的利息，简单来说就是俗称的利滚利。
-                    Para:
-                        k: 本金
-                        y: 年份
-                        m: 月份
-                        d: 天数
-                        i: 年利率
-                    Return:
-                        interest: 利息
-                        total: 总计返还
+                https://wiki.mbalib.com/wiki/%E5%8D%95%E5%88%A9 
+                单利指借款的成本或放贷的收益，是计算利息的一种方法，单利的计算取决于所借款项或供款的金额本金，资余借用时间的长及市场一利率水平等因素
+                按照单利计算的方法，只要本金在贷款期限中获得利息，不管时间多长，所生利息均不加人本全重复计算利息。这里所说的"本金”是指货给别人以收取利息的原本全额，“利息”是指借款人付给贷款人超过本金部分的金额
+                期限不是整数年的情况，比如储户的存款期限为 3 年，7 个月另 12 天，这时的收益的计算方法仍然按照上面的公式，但是要把月和天数换算成年数。在经济数学领域的日期换算中遵照如下约定：1 年有 360 天，1 个月有 30 天。
+                Para:
+                    k: 本金
+                    y: 年份
+                    m: 月份
+                    d: 天数
+                    i: 年利率
+                Return:
+                    interest: 利息
+                    total: 总计返还
                 </div> 
             </div>
       </Card>
