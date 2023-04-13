@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Welcome to My Watchlist!'
+    return 'Welcome to Our Calculator!'
 
 
 @app.errorhandler(HTTPException)
@@ -68,7 +68,7 @@ def kelly():
         abort(500)
 
 @app.route('/simple', methods=['GET'])
-def simple():
+def mixed_simple_interest():
     try:
         k = float(request.args.get("k"))
         y = float(request.args.get("y"))
@@ -92,7 +92,7 @@ def simple():
         abort(500)
 
 @app.route('/compound', methods=['GET'])
-def simple():
+def mixed_compound_interest():
     try:
         k = float(request.args.get("k"))
         y = float(request.args.get("y"))
