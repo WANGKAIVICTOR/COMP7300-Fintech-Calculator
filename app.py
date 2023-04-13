@@ -3,6 +3,7 @@ from werkzeug.exceptions import HTTPException
 import logging
 import json
 import functions
+from flask_cors import CORS
 
 # Enable logging
 logging.basicConfig(
@@ -10,7 +11,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/')
 def hello():
