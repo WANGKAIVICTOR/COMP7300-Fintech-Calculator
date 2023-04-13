@@ -67,6 +67,54 @@ def kelly():
         logger.error(e)
         abort(500)
 
+@app.route('/simple', methods=['GET'])
+def simple():
+    try:
+        k = float(request.args.get("k"))
+        y = float(request.args.get("y"))
+        m = float(request.args.get("m"))
+        d = float(request.args.get("d"))
+        i = float(request.args.get("i"))
+        interest, total = functions.mixed_simple_interest(k, y, m, d, i)
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed simple interest formula",
+            "principal": k,
+            "Years": y,
+            "Months": m,
+            "Days": d,
+            "Year interest rate": i,
+            "Interest": interest,
+            "Total":total,
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+@app.route('/compound', methods=['GET'])
+def simple():
+    try:
+        k = float(request.args.get("k"))
+        y = float(request.args.get("y"))
+        m = float(request.args.get("m"))
+        d = float(request.args.get("d"))
+        i = float(request.args.get("i"))
+        interest, total = functions.mixed_compound_interest(k, y, m, d, i)
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed compound interest formula",
+            "principal": k,
+            "Years": y,
+            "Months": m,
+            "Days": d,
+            "Year interest rate": i,
+            "Interest": interest,
+            "Total":total,
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)

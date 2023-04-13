@@ -39,7 +39,7 @@ def kelly(b, p, q):
     return round((b*p-q)/b, 6)
 
 
-def mixed_simple_interest(k, years, months, days, i):
+def mixed_simple_interest(k, y, m, d, i):
     """
     https://wiki.mbalib.com/wiki/%E5%8D%95%E5%88%A9 
     单利指借款的成本或放贷的收益，是计算利息的一种方法，单利的计算取决于所借款项或供款的金额本金，资余借用时间的长及市场一利率水平等因素
@@ -47,33 +47,33 @@ def mixed_simple_interest(k, years, months, days, i):
     期限不是整数年的情况，比如储户的存款期限为 3 年，7 个月另 12 天，这时的收益的计算方法仍然按照上面的公式，但是要把月和天数换算成年数。在经济数学领域的日期换算中遵照如下约定：1 年有 360 天，1 个月有 30 天。
     Para:
         k: 本金
-        years: 年份
-        months: 月份
-        days: 天数
+        y: 年份
+        m: 月份
+        d: 天数
         i: 年利率
     Return:
         interest: 利息
         total: 总计返还
     """
-    interest = k*(years+months/12+days/360)*i
+    interest = k*(y+m/12+d/360)*i
     total = k+interest
     return round(interest, 2), round(total, 2)
 
 
-def mixed_compound_interest(k, years, months, days, i):
+def mixed_compound_interest(k, y, m, d, i):
     """
     复利就是复合利息，它是指每年的收益还可以产生收益，具体是将整个借贷期限分割为若干段，前一段按本金计算出的利息要加入到本金中，形成增大了的本金，作为下一段计算利息的本金基数，直到每一段的利息都计算出来，加总之后，就得出整个借贷期内的利息，简单来说就是俗称的利滚利。
     Para:
         k: 本金
-        years: 年份
-        months: 月份
-        days: 天数
+        y: 年份
+        m: 月份
+        d: 天数
         i: 年利率
     Return:
         interest: 利息
         total: 总计返还
     """
-    total = k*(1+i)**years*(1+i*30*months*days/360)
+    total = k*(1+i)**y*(1+i*30*m*d/360)
     interest = total -k 
     return round(interest,2), round(total,2)
 
