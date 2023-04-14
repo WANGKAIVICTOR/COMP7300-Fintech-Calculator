@@ -78,3 +78,31 @@ def mixed_compound_interest(k, y, m, d, i):
     return round(interest,2), round(total,2)
 
 
+def loan_principal_equal(k,y,t,i):
+    """
+    等额本金
+    日利率=年利率÷360=月利率÷30
+    Para:
+        k: 本金
+        y: 年份
+        t: 分期数量
+        i: 年利率
+    Return:
+
+    """
+    pass
+
+
+def loans_equal_principal_and_interest(k,y,t,i):
+    """
+    等额本息
+    日利率=年利率÷360=月利率÷30
+    Para:
+        k: 本金
+        y: 年份
+        t: 分期数量
+        i: 年利率
+    Return:
+    
+    """
+    pass
