@@ -74,11 +74,11 @@ def mixed_compound_interest(k, y, m, d, i):
         total: 总计返还
     """
     total = k*(1+i)**y*(1+i*30*m*d/360)
-    interest = total -k 
-    return round(interest,2), round(total,2)
+    interest = total - k
+    return round(interest, 2), round(total, 2)
 
 
-def loan_principal_equal(k,y,t,i):
+def loan_principal_equal(k, y, t, i):
     """
     等额本金
     日利率=年利率÷360=月利率÷30
@@ -88,12 +88,22 @@ def loan_principal_equal(k,y,t,i):
         t: 分期数量
         i: 年利率
     Return:
-
+        interest: 总利息
+        total: 总还款额
+        each_time: 每次还款的金额
     """
-    pass
+    rate = i/(t/y)
+    Monthly_principal = k/t
+    interest = (t+1)*k*rate/2
+    total = k+interest
+    each_time = []
+    for i in range(t):
+        each_time.append(
+            round(Monthly_principal+(k-i*Monthly_principal)*rate, 2))
+    return each_time, round(interest,2), round(total,2)
 
 
-def loans_equal_principal_and_interest(k,y,t,i):
+def loans_equal_principal_and_interest(k, y, t, i):
     """
     等额本息
     日利率=年利率÷360=月利率÷30
@@ -103,6 +113,17 @@ def loans_equal_principal_and_interest(k,y,t,i):
         t: 分期数量
         i: 年利率
     Return:
-    
+        each_time: 每次还款金额
+        total: 总还款额
+        interest: 利息
     """
-    pass
+    rate = i/(t/y)
+    # 贷款本金×[月利率×(1+月利率) ^ 还款月数]÷{[(1+月利率) ^ 还款月数]-1}
+    each_time = k*(rate*(1+rate)**t)/((1+rate)**t-1)
+    total = each_time*t
+    interest = total - k
+    return round(each_time,2), round(interest,2), round(total,2)
+
+
+each_time, interest,total=loans_equal_principal_and_interest(10000, 21, 252, 0.0594)
+print(each_time, interest,total)

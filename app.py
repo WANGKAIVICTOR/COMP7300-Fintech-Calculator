@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app)
 
+
 @app.route('/')
 def hello():
     return 'Welcome to Our Calculator!'
@@ -68,6 +69,7 @@ def kelly():
         logger.error(e)
         abort(500)
 
+
 @app.route('/simple', methods=['GET'])
 def mixed_simple_interest():
     try:
@@ -86,11 +88,12 @@ def mixed_simple_interest():
             "Days": d,
             "Year interest rate": i,
             "Interest": interest,
-            "Total":total,
+            "Total": total,
         }), mimetype='application/json')
     except Exception as e:
         logger.error(e)
         abort(500)
+
 
 @app.route('/compound', methods=['GET'])
 def mixed_compound_interest():
@@ -110,7 +113,52 @@ def mixed_compound_interest():
             "Days": d,
             "Year interest rate": i,
             "Interest": interest,
-            "Total":total,
+            "Total": total,
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+
+@app.route('/same_monthly', methods=['GET'])
+def loans_equal_principal_and_interest():
+    try:
+        k = float(request.args.get("k"))
+        y = float(request.args.get("y"))
+        t = float(request.args.get("t"))
+        i = float(request.args.get("i"))
+        each_time, interest,total = functions.loans_equal_principal_and_interest(k, y,t, i)
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed compound interest formula",
+            "loan": k,
+            "Years": y,
+            "Year interest rate": i,
+            "each time":each_time,
+            "Interest": interest,
+            "Total": total,
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+@app.route('/decline_monthly', methods=['GET'])
+def loan_principal_equal():
+    try:
+        k = float(request.args.get("k"))
+        y = float(request.args.get("y"))
+        t = float(request.args.get("t"))
+        i = float(request.args.get("i"))
+        each_time, interest,total = functions.loan_principal_equal(k, y,t, i)
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed compound interest formula",
+            "loan": k,
+            "Years": y,
+            "Year interest rate": i,
+            "each time":each_time,
+            "Interest": interest,
+            "Total": total,
         }), mimetype='application/json')
     except Exception as e:
         logger.error(e)
