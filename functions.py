@@ -123,7 +123,3 @@ def loans_equal_principal_and_interest(k, y, t, i):
     total = each_time*t
     interest = total - k
     return round(each_time,2), round(interest,2), round(total,2)
-
-
-each_time, interest,total=loans_equal_principal_and_interest(10000, 21, 252, 0.0594)
-print(each_time, interest,total)
