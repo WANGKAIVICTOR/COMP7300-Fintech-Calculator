@@ -64,6 +64,13 @@ class Loan(db.Model):
     rate = db.Column(db.Float)
     total = db.Column(db.Float)
 
+class Purchasing(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    initial_amount = db.Column(db.Float)
+    annual_inflation_rate = db.Column(db.Float)
+    time = db.Column(db.Float)
+    result = db.Column(db.Float)
 
 # Create table model
 with app.app_context():
@@ -287,12 +294,12 @@ def purchasing_power():
         value = functions.purchasing_power(initial_amount, annual_inflation_rate, time)
 
         # insert to db
-        # session = connection()
-        # session.add(Loan(name='loan_principal_equal', principal=k,
-        #             years=y, staging_quantity=t, rate=i, total=total))
-        # session.commit()
-        # session.close()
-        # logger.info("Inserted one loan_principal_equal entity.")
+        session = connection()
+        session.add(Purchasing(name='purchasing_power', initial_amount=initial_amount,
+                    annual_inflation_rate=annual_inflation_rate, time=time,result=value))
+        session.commit()
+        session.close()
+        logger.info("Inserted one purchasing_power entity.")
         
 
         # freeze json response without sorting

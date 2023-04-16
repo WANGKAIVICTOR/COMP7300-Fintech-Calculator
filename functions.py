@@ -133,6 +133,5 @@ def purchasing_power(initial_amount, annual_inflation_rate, time):
     return:
         a: after x years, the money value
     """
-    print("fhasdkjfhasdjklhfklw")
     a = float(initial_amount) * ((100 / (100 + int(annual_inflation_rate))) ** int(time))
-    return a
+    return round(a,2)
