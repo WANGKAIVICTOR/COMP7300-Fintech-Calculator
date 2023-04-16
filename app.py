@@ -34,8 +34,6 @@ SQLALCHEMY_ECHO = True
 db = SQLAlchemy(app)
 
 # Define table model
-
-
 class Deposit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
@@ -71,7 +69,7 @@ class Loan(db.Model):
 with app.app_context():
     db.create_all()
 
-
+# connect to db
 def connection():
     engine = create_engine(
         prefix + os.path.join(app.root_path, 'data.sqlite3'))
