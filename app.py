@@ -7,6 +7,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import func
 import os
 import sys
 
@@ -314,7 +315,36 @@ def purchasing_power():
         logger.error(e)
         abort(500)
 
+@app.route('/data_explore', methods=['GET'])
+def data_explore():
+    """
+    Explore the issues people concerned
+    return:
+        data: dict data
+    """
+    try:
+        session = connection()
+        loan = session.query(Loan.name, func.count(Loan.name)).group_by(Loan.name).all()
+        kelly = session.query(Kelly.name, func.count(Kelly.name)).group_by(Kelly.name).all()
+        purchasing = session.query(Purchasing.name, func.count(Purchasing.name)).group_by(Purchasing.name).all()
+        deposit = session.query(Deposit.name, func.count(Deposit.name)).group_by(Deposit.name).all()
+        result = loan+kelly+purchasing+deposit
+        result = {}
+        result = converter(loan+kelly+purchasing+deposit,result)
+        print(result)
 
+
+        session.close()
+        logger.info("Counted the frequency of each methods")
+
+        return Response(json.dumps(result), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+def converter(tup,di):
+    di = dict(tup)
+    return di
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
