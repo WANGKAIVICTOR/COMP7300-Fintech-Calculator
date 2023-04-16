@@ -1,4 +1,4 @@
-import './test.css'
+import './index.css'
 import React ,{useState, useEffect} from "react";
 
 function News(){
