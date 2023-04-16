@@ -328,12 +328,8 @@ def data_explore():
         kelly = session.query(Kelly.name, func.count(Kelly.name)).group_by(Kelly.name).all()
         purchasing = session.query(Purchasing.name, func.count(Purchasing.name)).group_by(Purchasing.name).all()
         deposit = session.query(Deposit.name, func.count(Deposit.name)).group_by(Deposit.name).all()
-        result = loan+kelly+purchasing+deposit
         result = {}
         result = converter(loan+kelly+purchasing+deposit,result)
-        print(result)
-
-
         session.close()
         logger.info("Counted the frequency of each methods")
 
