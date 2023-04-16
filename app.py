@@ -329,7 +329,7 @@ def data_explore():
         purchasing = session.query(Purchasing.name, func.count(Purchasing.name)).group_by(Purchasing.name).all()
         deposit = session.query(Deposit.name, func.count(Deposit.name)).group_by(Deposit.name).all()
         result = {}
-        result = converter(loan+kelly+purchasing+deposit,result)
+        result = dict(loan+kelly+purchasing+deposit)
         session.close()
         logger.info("Counted the frequency of each methods")
 
@@ -337,10 +337,6 @@ def data_explore():
     except Exception as e:
         logger.error(e)
         abort(500)
-
-def converter(tup,di):
-    di = dict(tup)
-    return di
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
