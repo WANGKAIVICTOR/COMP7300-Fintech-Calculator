@@ -6,7 +6,6 @@ import functions
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
 import sys
@@ -22,6 +21,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Initialize the database
+logger.info("Initialized database.")
 WIN = sys.platform.startswith('win')
 if WIN:  # if windows
     prefix = 'sqlite:///'
@@ -123,11 +123,11 @@ def kelly():
         )
 
         # insert to db
-        print("STart insert")
         session = connection()
         session.add(Kelly(name='kelly', b=b, p=p, q=q, value=value))
         session.commit()
         session.close()
+        logger.info("Inserted one kelly entity.")
 
         # freeze json response without sorting
         return Response(json.dumps({
@@ -158,6 +158,8 @@ def mixed_simple_interest():
                     years=y, months=m, days=d, rate=i, interest=interest, total=total))
         session.commit()
         session.close()
+        logger.info("Inserted one mixed_simple_interest entity.")
+
 
         # freeze json response without sorting
         return Response(json.dumps({
@@ -191,6 +193,8 @@ def mixed_compound_interest():
                     years=y, months=m, days=d, rate=i, interest=interest, total=total))
         session.commit()
         session.close()
+        logger.info("Inserted one mixed_compound_interest entity.")
+
 
         # freeze json response without sorting
         return Response(json.dumps({
@@ -224,6 +228,8 @@ def loans_equal_principal_and_interest():
                     principal=k, years=y, staging_quantity=t, rate=i, total=total))
         session.commit()
         session.close()
+        logger.info("Inserted one loans_equal_principal_and_interest entity.")
+
 
         # freeze json response without sorting
         return Response(json.dumps({
@@ -255,6 +261,8 @@ def loan_principal_equal():
                     years=y, staging_quantity=t, rate=i, total=total))
         session.commit()
         session.close()
+        logger.info("Inserted one loan_principal_equal entity.")
+        
 
         # freeze json response without sorting
         return Response(json.dumps({
