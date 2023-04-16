@@ -278,6 +278,36 @@ def loan_principal_equal():
         logger.error(e)
         abort(500)
 
+@app.route('/purchasing_power', methods=['GET'])
+def purchasing_power():
+    try:
+        initial_amount = request.args.get("initial_amount")
+        annual_inflation_rate = request.args.get("annual_inflation_rate")
+        time = request.args.get("time")
+        value = functions.purchasing_power(initial_amount, annual_inflation_rate, time)
+
+        # insert to db
+        # session = connection()
+        # session.add(Loan(name='loan_principal_equal', principal=k,
+        #             years=y, staging_quantity=t, rate=i, total=total))
+        # session.commit()
+        # session.close()
+        # logger.info("Inserted one loan_principal_equal entity.")
+        
+
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed compound interest formula",
+            "initial_amount": initial_amount,
+            "annual_inflation_rate": annual_inflation_rate,
+            "time": time,
+            "value": value,
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)

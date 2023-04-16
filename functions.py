@@ -117,8 +117,22 @@ def loans_equal_principal_and_interest(k, y, t, i):
         interest: interest
     """
     rate = i/(t/y)
-    # 贷款本金×[月利率×(1+月利率) ^ 还款月数]÷{[(1+月利率) ^ 还款月数]-1}
     each_time = k*(rate*(1+rate)**t)/((1+rate)**t-1)
     total = each_time*t
     interest = total - k
     return round(each_time,2), round(interest,2), round(total,2)
+
+
+def purchasing_power(initial_amount, annual_inflation_rate, time):
+    """
+    Calculate the purchasing power
+    Para:
+        initial_amount: principal
+        annual_inflation_rate
+        time: years
+    return:
+        a: after x years, the money value
+    """
+    print("fhasdkjfhasdjklhfklw")
+    a = float(initial_amount) * ((100 / (100 + int(annual_inflation_rate))) ** int(time))
+    return a
