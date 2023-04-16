@@ -5,6 +5,10 @@
     left: 0;
     top: 0;
     background: center/cover url('login.png');
+    /* background-size: cover; 
+    background-position: center;
+    background-repeat: repeat-y;
+    background-attachment: fixed; */
 }
 
 .login-logo {

@@ -6,12 +6,13 @@ import Test from "./pages/test";
 import Compound from "./pages/mixed_simple_interest"
 import Simple from "./pages/simple_interest"
 import Loans from "./pages/loans"
+import Loansequal from "./pages/loansequal"
+
 import './App.css';
 
 function App() {
   return (
     <div>
-      <h1>我是一个导航栏</h1>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
@@ -20,6 +21,8 @@ function App() {
           <Route path="/compound" element={<Compound />} />
           <Route path="/simple" element={<Simple />} />
           <Route path="/loans" element={<Loans />} />
+          <Route path="/loansequal" element={<Loansequal />} />
+
         </Routes>
       </BrowserRouter>
     </div>
