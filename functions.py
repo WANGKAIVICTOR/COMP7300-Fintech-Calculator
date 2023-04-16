@@ -96,7 +96,7 @@ def loan_principal_equal(k, y, t, i):
     interest = (t+1)*k*rate/2
     total = k+interest
     each_time = []
-    for i in range(t):
+    for i in range(int(t)):
         each_time.append(
             round(Monthly_principal+(k-i*Monthly_principal)*rate, 2))
     return each_time, round(interest,2), round(total,2)
