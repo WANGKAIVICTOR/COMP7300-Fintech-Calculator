@@ -1,3 +1,5 @@
 flask
 finnhub-python
 flask_cors
+flask-sqlalchemy
+pymysql

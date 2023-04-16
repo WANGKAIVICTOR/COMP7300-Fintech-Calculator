@@ -1,4 +1,3 @@
-import math
 import finnhub
 import configparser
 config = configparser.ConfigParser()
