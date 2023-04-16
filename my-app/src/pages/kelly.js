@@ -28,7 +28,6 @@ function Kellys(){
     });
   };
 
-
     return (
     <div className="login">
       <Card className="calculator-container">
