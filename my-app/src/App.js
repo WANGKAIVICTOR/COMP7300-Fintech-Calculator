@@ -5,7 +5,7 @@ import Main from "./pages/main/index";
 import Test from "./pages/test";
 import Compound from "./pages/mixed_simple_interest"
 import Simple from "./pages/simple_interest"
-
+import Loans from "./pages/loans"
 import './App.css';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/compound" element={<Compound />} />
           <Route path="/simple" element={<Simple />} />
+          <Route path="/loans" element={<Loans />} />
         </Routes>
       </BrowserRouter>
     </div>
