@@ -28,7 +28,7 @@ if WIN:  # if windows
 else:
     prefix = 'sqlite:////'
 app.config['SQLALCHEMY_DATABASE_URI'] = prefix + \
-    os.path.join(app.root_path, 'data.sqlite3')
+    os.path.join(app.root_path, 'data.sqlite3') 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 SQLALCHEMY_ECHO = True
 db = SQLAlchemy(app)
@@ -49,8 +49,8 @@ class Deposit(db.Model):
 class Kelly(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
-    d = db.Column(db.Float)
     b = db.Column(db.Float)
+    p = db.Column(db.Float)
     q = db.Column(db.Float)
     value = db.Column(db.Float)
 
@@ -123,6 +123,7 @@ def kelly():
         )
 
         # insert to db
+        print("STart insert")
         session = connection()
         session.add(Kelly(name='kelly', b=b, p=p, q=q, value=value))
         session.commit()
