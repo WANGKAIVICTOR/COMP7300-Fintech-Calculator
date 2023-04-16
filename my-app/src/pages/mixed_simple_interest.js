@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { Form, Input, Button,  Card } from 'antd'
 import "./kelly.css";
 
-function Kellys(){
+function Mixed_simple_interest(){
     const [k, setk] = useState(0);
     const [y, sety] = useState(0);
     const [m, setm] = useState(0);
@@ -35,7 +35,7 @@ function Kellys(){
     return (
     <div className="login">
       <Card className="calculator-container">
-          <h1 className="title">参数设置</h1>
+          <h1 className="title">Configuration</h1>
           <Form validateTrigger={['onBlur', 'onChange']}
             // initialValues={{
             //     "Winning_Per": 70,
@@ -150,7 +150,7 @@ function Kellys(){
     
 
       <div className='input-container'>
-      <div className='para-test'>rates</div>
+      <div className='para-test'>Rates</div>
       <Form.Item
       onChange={(event) => seti(event.target.value)}
       name="rates"
@@ -177,12 +177,12 @@ function Kellys(){
 
           <Form.Item>
             <Button type="primary" htmlType="submit" size="large" >
-                计算结果
+                Summit
             </Button>
           </Form.Item>
-          <h1 className="title">计算结果</h1>
+          <h1 className="title">Calculation Result</h1>
           <div className='input-container'>
-          <div className='para-test'>interest</div>
+          <div className='para-test'>Interest</div>
             <Form.Item name="interest">
              <div>
                 <Input size="large" type='number' value={intetest} maxLength={30} readOnly/>
@@ -201,22 +201,21 @@ function Kellys(){
             </Form>
             
 
-            <h1 className="title">Discribtion</h1>
+            <h1 className="title">Simple interest is...</h1>
             <div className='input-container'>
-                <div>
-                    复利就是复合利息，它是指每年的收益还可以产生收益，具体是将整个借贷期限分割为若干段，\n
-                    前一段按本金计算出的利息要加入到本金中，形成增大了的本金，作为下一段计算利息的本金基数，
-                    直到每一段的利息都计算出来，加总之后，就得出整个借贷期内的利息，简单来说就是俗称的利滚利。
-                    Para:
-                        k: 本金
-                        y: 年份
-                        m: 月份
-                        d: 天数
-                        i: 年利率
-                    Return:
-                        interest: 利息
-                        total: 总计返还
-                </div> 
+            <div className="paragraph-container">
+                <p className='paragraph'>
+                    "Simple interest refers to the cost of borrowing or the income of lending.
+                     It is a method of calculating interest.
+                      The calculation of simple interest depends on the amount of the loan or contribution.
+                      The length of the borrowing period of the balance and the level of interest rates in the market.
+                      The simple interest calculation method, as long as the principal earns interest during the loan period, no matter how long the time is, the interest generated will not be added to the principal and the interest will be double-calculated. 
+                      The "principal" mentioned here refers to the original full amount of the goods to others to collect interest, and the "interest" refers to the situation that the borrower pays the lender the amount exceeding the principal and the period is not an integer number of years. 
+                      For example, the deposit period of a depositor is 3 years, 7 months and 12 days.
+                      At this time, the calculation method of the income is still in accordance with the above formula, but the number of months and days must be converted into years.
+                      In the date conversion in the field of economic mathematics, the following conventions are followed: there are 360 days in a year and 30 days in a month.
+                </p> 
+              </div>
             </div>
       </Card>
     </div>
@@ -224,4 +223,4 @@ function Kellys(){
 }
 
 
-export default Kellys;
+export default Mixed_simple_interest;
