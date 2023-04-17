@@ -21,7 +21,7 @@ function Principal(){
   };
 
     return (
-    <div className="login">
+    <div className="login-pages">
       <Card className="calculator-container">
           <h1 className="title">Configuration</h1>
           <Form validateTrigger={['onBlur', 'onChange']}
@@ -44,7 +44,7 @@ function Principal(){
             {
             pattern: /^(0|[1-9]\d?|100)$/,   //正则化数字
             validateTrigger: 'onBlur',
-            message:'please input the correct num'
+            message:'please input the correct num from 1-100'
             },
             { 
               required: true, 

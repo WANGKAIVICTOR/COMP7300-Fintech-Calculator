@@ -59,7 +59,7 @@ function Loans(){
         name="Capital"
         rules={[
             {
-            pattern: /^(0|[1-9]\d?|100)$/,   //正则化数字
+              pattern: /^\d+$/,   //正则化数字
             validateTrigger: 'onBlur',
             message:'please input the correct num'
             },
@@ -83,7 +83,7 @@ function Loans(){
       rules={[
           { 
             // 年份正则化
-              pattern: /^(0|[1-9]\d?|100)$/, 
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the year'
           },
@@ -107,7 +107,7 @@ function Loans(){
       name="Number of installments"
       rules={[
           {     //月份正则化
-              pattern: /^(0|[1-9]\d?|12)$/,
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the Number of installments'
           },
@@ -132,9 +132,9 @@ function Loans(){
       name="rates"
       rules={[
           {     
-              pattern: /^(0|[1-9]\d?|100)$/,
+              pattern: /^(0(\.\d+)?|1(\.0+)?)$/,
               validateTrigger: 'onBlur',
-              message:'please input the rates'
+              message:'please input the rates should be 0.0 - 1.0'
           },
           { 
               required: true, 
@@ -182,22 +182,14 @@ function Loans(){
             </Form>
             
 
-            {/* <h1 className="title">Simple interest is...</h1>
+            <h1 className="title">The Equal Loan Payment is...</h1>
             <div className='input-container'>
             <div className="paragraph-container">
                 <p className='paragraph'>
-                    "Simple interest refers to the cost of borrowing or the income of lending.
-                     It is a method of calculating interest.
-                      The calculation of simple interest depends on the amount of the loan or contribution.
-                      The length of the borrowing period of the balance and the level of interest rates in the market.
-                      The simple interest calculation method, as long as the principal earns interest during the loan period, no matter how long the time is, the interest generated will not be added to the principal and the interest will be double-calculated. 
-                      The "principal" mentioned here refers to the original full amount of the goods to others to collect interest, and the "interest" refers to the situation that the borrower pays the lender the amount exceeding the principal and the period is not an integer number of years. 
-                      For example, the deposit period of a depositor is 3 years, 7 months and 12 days.
-                      At this time, the calculation method of the income is still in accordance with the above formula, but the number of months and days must be converted into years.
-                      In the date conversion in the field of economic mathematics, the following conventions are followed: there are 360 days in a year and 30 days in a month.
+                The Equal Loan Payment Calculator is a financial tool used to calculate the monthly payment amount for a loan with equal payments over its term. With this type of loan repayment plan, the borrower pays a fixed amount each month that includes both principal and interest. This means that the borrower will pay less in interest if they make extra payments or pay off the loan early. The Equal Loan Payment Calculator uses inputs such as loan amount, interest rate, and loan term to calculate the monthly payment amount, which helps borrowers understand their repayment schedule and budget accordingly. This calculator can be useful for those considering taking out a loan, as it provides an estimate of the monthly payment amount based on the loan terms.
                 </p> 
               </div>
-            </div> */}
+            </div>
       </Card>
     </div>
     );

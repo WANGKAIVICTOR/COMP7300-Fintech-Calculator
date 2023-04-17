@@ -85,9 +85,9 @@ function Component1() {
 
 
   return (
-    <div className="login">
-      <div className="login-container">
-        <Card >
+    <div className="main-pages">
+     
+        <Card className="login-container">
           {/* <h1>这里是一个九宫格</h1> */}
           <div className="title-container">
             <div className="Fintech-title">Fintech Calculator</div>
@@ -110,7 +110,6 @@ function Component1() {
           </div>
 
           <div>
-            {/* <Bar {...config} /> */}
             <BarChart />
           </div>
 
@@ -139,7 +138,7 @@ function Component1() {
 
 
         </Card>
-      </div>
+      
     </div>
   );
 }
