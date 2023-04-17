@@ -138,6 +138,17 @@ function Loans_qual(){
             
 
           </Form>
+
+
+          <h1 className="title">Devaluation Calculator is...</h1>
+            <div className='input-container'>
+            <div className="paragraph-container">
+                <p className='paragraph'>
+                The Devaluation Calculator is a financial tool used to calculate the decrease in value of a currency relative to other currencies. Devaluation occurs when the value of a currency decreases in relation to other currencies due to factors such as inflation or government policy changes. The Devaluation Calculator can help individuals and businesses understand the impact of devaluation on their finances, by calculating the new exchange rate and the resulting increase in the cost of imported goods or services. By inputting the original exchange rate and the percentage of devaluation, the calculator can display the new exchange rate and the percentage change, helping users make informed financial decisions.
+                </p> 
+              </div>
+            </div>
+
       </Card>
     </div>
     );

@@ -23,7 +23,7 @@ function Chat() {
         })
             .then(response => response.json())
             .then(function (resp) {
-                setHistory(resp['history'])
+                // setHistory(resp['history'])
                 addResponseMessage(resp['response']['result'])
             })
             .catch(error => console.log(error))

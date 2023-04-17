@@ -74,6 +74,16 @@ function Principal(){
           </div>
             </Form>
             
+            
+
+            <h1 className="title">Principal Doubling Time Calculator is...</h1>
+            <div className='input-container'>
+            <div className="paragraph-container">
+                <p className='paragraph'>
+                The Principal Doubling Time Calculator is a financial tool used to estimate the time it takes for an investment or savings account to double in value based on the interest rate earned. By inputting the initial principal amount and the annual interest rate, the calculator can determine the number of years it will take for the investment or savings account to reach twice its original value. The Principal Doubling Time Calculator helps investors and savers understand the growth potential of their investments and make informed decisions about their financial future. This tool is useful for retirement planning, long-term investing, and other financial goals.
+                </p> 
+              </div>
+            </div>
 
       </Card>
     </div>

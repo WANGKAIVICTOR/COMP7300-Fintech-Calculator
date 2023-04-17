@@ -200,7 +200,7 @@ function Simple_interest(){
             </Form>
             
 
-            <h1 className="title">Discribtion</h1>
+            <h1 className="title">Simple interest is...</h1>
             <div className='input-container'>
             <div className="paragraph-container">
                 <p className='paragraph'>

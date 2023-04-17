@@ -29,7 +29,7 @@ function Kellys(){
   };
 
     return (
-    <div className="login">
+    <div className="login-pages">
       <Card className="calculator-container">
           <h1 className="title">Configuration</h1>
           <Form validateTrigger={['onBlur', 'onChange']} onFinish={handleSubmit}>

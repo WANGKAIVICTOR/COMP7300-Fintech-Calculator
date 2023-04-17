@@ -100,7 +100,16 @@ function Loans(){
             </Form.Item>
           </div>
             </Form>
-        
+
+            <h1 className="title">GDP Growth Formula is...</h1>
+            <div className='input-container'>
+            <div className="paragraph-container">
+                <p className='paragraph'>
+                    " The GDP Growth Rate Calculator is a tool used to calculate and track the growth rate of a country's Gross Domestic Product (GDP) over time. GDP is a common measure of a country's economic performance, representing the total value of all goods and services produced within its borders in a given period. The GDP Growth Rate Calculator helps analysts, policymakers, and investors understand how a country's economy is performing, by comparing changes in GDP over different periods. By inputting GDP data from different years, the calculator can display the annual growth rate as a percentage, helping users analyze economic trends and make informed decisions."
+                </p> 
+              </div>
+            </div>
+
       </Card>
     </div>
     );

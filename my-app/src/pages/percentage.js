@@ -99,6 +99,14 @@ function Principal(){
           </div>
             </Form>
             
+            <h1 className="title">The Percentage Markup Calculator is...</h1>
+            <div className='input-container'>
+            <div className="paragraph-container">
+                <p className='paragraph'>
+                The Percentage Markup Calculator is a financial tool used to determine the selling price of aproduct or service based on the desired profit margin. By inputting the cost of production and thedesired percentage markup, the calculator can calculate the selling price needed to achieve thedesired profit margin. The Percentage Markup Calculator helps businesses and individualsunderstand the cost of production and the potential profit marains for their products or servicesand make informed pricing decisions. This tool is useful for pricing strategies, budgeting, andfinancial planning, and can be applied to various industries such as retail, manufacturing, andservice sectors.
+                </p> 
+              </div>
+            </div>
 
       </Card>
     </div>
