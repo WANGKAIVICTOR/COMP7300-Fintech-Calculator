@@ -23,7 +23,7 @@ function Component1() {
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loans'>equal principal payment</a></li></div>
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loansequal'>Equal loan payment</a></li></div>
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/test'>test</a></li></div>          
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/purchasing_power'>purchasing power</a></li></div>
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>          
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>
         </div>
@@ -34,7 +34,7 @@ function Component1() {
 
         <div className="calculator-item-row">
           
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/marketnews'>Marketnews</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/marketnews'>Market News</a></li></div>
         
         </div>
 

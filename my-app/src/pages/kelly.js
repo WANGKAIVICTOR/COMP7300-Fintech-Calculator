@@ -5,7 +5,7 @@ import "./kelly.css";
 function Kellys(){
     const [odds, setOdds] = useState(0);
     const [p, setP] = useState(0);
-    const [n, setQ] = useState(0);
+    const [q, setQ] = useState(0);
     const [betSize, setBetSize] = useState(0);
 
     // function onFinishFiled (errorInfo) {console.log(errorInfo)};
@@ -15,7 +15,7 @@ function Kellys(){
     // }
     const handleSubmit =  () => {
       // event.preventDefault();
-      fetch(`http://127.0.0.1:8000/kelly?b=${odds}&p=${p}&q=${n}`,{mode: 'cors'})
+      fetch(`http://127.0.0.1:8000/kelly?b=${odds}&p=${p}&q=${q}`,{mode: 'cors'})
       .then(response => response.json())
       .then(data => {
       console.log(data);
@@ -31,17 +31,8 @@ function Kellys(){
     return (
     <div className="login">
       <Card className="calculator-container">
-          <h1 className="title">参数设置</h1>
-          <Form validateTrigger={['onBlur', 'onChange']}
-            // initialValues={{
-            //     "Winning_Per": 70,
-            //     "NetOdds_Win": 30,
-            //     "Defeat_Rat": 50,
-            //     remember: true
-            // }}
-            onFinish={handleSubmit}
-            // onFinishFiled={onFinishFiled}
-          >
+          <h1 className="title">Configuration</h1>
+          <Form validateTrigger={['onBlur', 'onChange']} onFinish={handleSubmit}>
 
 
       <div className='input-container'>
@@ -122,13 +113,13 @@ function Kellys(){
 
           <Form.Item>
             <Button type="primary" htmlType="submit" size="large" >
-                计算结果
+                Summit
             </Button>
           </Form.Item>
 
-          <h1 className="title">计算结果</h1>
+          <h1 className="title">Result</h1>
           <div className='input-container'>
-          <div className='para-test'>最佳投注比例</div>
+          <div className='para-test'>Best Betting Ratio</div>
             <Form.Item 
             name="NetOdds_Los"
             >
