@@ -14,7 +14,7 @@ def market_news(category="forex"):
     return finnhub_client.general_news(category, min_id=0)[:10]
 
 
-def kelly(b, p, q):
+def kelly(p, a, b):
     """
     https://wiki.mbalib.com/wiki/%E5%87%AF%E5%88%A9%E5%85%AC%E5%BC%8F
     The Kelly formula is a formula that can be applied to investment funds and bets.
@@ -36,7 +36,7 @@ def kelly(b, p, q):
 
     f^*=16.6% is the most favorable percentage you can bet, and 16.6% is the percentage you can bet each time to maximize your returns. And that's assuming you have a positive expected value, which is bp-q. 0. In the coin toss case, the expected value =0.25 is positive.
     """
-    return round((b*p-q)/b, 6)
+    return round((p/a)-((100-p)/b), 6)*100
 
 
 def mixed_simple_interest(k, y, m, d, i):
@@ -138,6 +138,7 @@ def purchasing_power(initial_amount, annual_inflation_rate, time):
         ((100 / (100 + int(annual_inflation_rate))) ** int(time))
     return round(a, 2)
 
+
 def gdp_growth_rate(current_year_gdp, last_year_gdp):
     """
     Calculate the gdp growth rate
@@ -147,8 +148,10 @@ def gdp_growth_rate(current_year_gdp, last_year_gdp):
     Return:
         rate
     """
-    gdp_growth_rate = ((current_year_gdp - last_year_gdp) / last_year_gdp) * 100
-    return round(gdp_growth_rate,2)
+    gdp_growth_rate = (
+        (current_year_gdp - last_year_gdp) / last_year_gdp) * 100
+    return round(gdp_growth_rate, 2)
+
 
 def doubling_time(r):
     """
@@ -159,7 +162,8 @@ def doubling_time(r):
         time
     """
     t = math.log(2) / math.log(1 + (r / 100))
-    return round(t,2)
+    return round(t, 2)
+
 
 def markup_percentage(price, cost):
     """
@@ -171,4 +175,4 @@ def markup_percentage(price, cost):
         rate
     """
     markup_percentage = ((price - cost) / cost) * 100
-    return round(markup_percentage,2)
+    return round(markup_percentage, 2)
