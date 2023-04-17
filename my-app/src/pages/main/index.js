@@ -5,11 +5,31 @@ import Launcher from './../../components/Launcher'
 import './../../styles';
 import Barchart from './barchart';
 import Livechat from './../livechat'
-
+import {Bar} from '@ant-design/plots';
 
 function Component1() {
   const [messageList, setMessageList] = useState([]);
+  
+  
+  const [userdata, setUserData] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('http://127.0.0.1:8000/data_explore');
+      const jsonData = await response.json();
+      setUserData(jsonData.data);
+      console.log(jsonData.data)
+    }
+    fetchData();
+  }, []);
 
+  const config = {
+    userdata,
+    xField: 'name',
+    yField: 'value',
+    isStack: true,
+  };
+  
+  
   function _onMessageWasSent(message) {
     setMessageList([...messageList, message]);
   }
@@ -93,10 +113,9 @@ function Component1() {
             <div className="News-title">User Data</div>
           </div>
 
-          {/* <div className="login-container"> */}
-          {/* 使用 .map() 函数遍历数据数组 */}
-          {/* <Barchart  /> */}
-          {/* </div> */}
+         <div>
+        <Bar {...config} />
+        </div>
 
           <div className="title-container">
             <div className="News-title">News</div>
