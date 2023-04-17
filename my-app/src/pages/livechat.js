@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Launcher from './../components/Launcher'
 
 
@@ -12,19 +12,19 @@ function Livechat() {
     // fetch the games according to the genres
     const [data, setData] = useState([])
 
-    useEffect(() => {
-        fetch('http://localhost:8000/score', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                mode: 'cors',
-            },
-            body: JSON.stringify({ selected })
-        })
-            .then(response => response.json())
-            .then(resp => setData(resp['data']))
-            .catch(error => console.log(error))
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:8000/score', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             mode: 'cors',
+    //         },
+    //         body: JSON.stringify({ selected })
+    //     })
+    //         .then(response => response.json())
+    //         .then(resp => setData(resp['data']))
+    //         .catch(error => console.log(error))
+    // }, []);
 
     console.log(data);
 

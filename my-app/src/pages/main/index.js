@@ -5,22 +5,23 @@ import Launcher from './../../components/Launcher'
 import './../../styles';
 import Barchart from './barchart';
 import Livechat from './../livechat'
-import {Bar} from '@ant-design/plots';
+import { Bar } from '@ant-design/plots';
+import BarChart from '../barchart';
 
 function Component1() {
   const [messageList, setMessageList] = useState([]);
-  
-  
+
+
   const [userdata, setUserData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('http://127.0.0.1:8000/data_explore');
-      const jsonData = await response.json();
-      setUserData(jsonData.data);
-      console.log(jsonData.data)
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch('http://127.0.0.1:8000/data_explore');
+  //     const jsonData = await response.json();
+  //     setUserData(jsonData.data);
+  //     console.log(jsonData.data)
+  //   }
+  //   fetchData();
+  // }, []);
 
   const config = {
     userdata,
@@ -28,8 +29,8 @@ function Component1() {
     yField: 'value',
     isStack: true,
   };
-  
-  
+
+
   function _onMessageWasSent(message) {
     setMessageList([...messageList, message]);
   }
@@ -113,9 +114,9 @@ function Component1() {
             <div className="News-title">User Data</div>
           </div>
 
-         <div>
-        <Bar {...config} />
-        </div>
+          <div>
+            <BarChart />
+          </div>
 
           <div className="title-container">
             <div className="News-title">News</div>
