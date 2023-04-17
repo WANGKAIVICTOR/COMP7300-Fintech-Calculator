@@ -7,9 +7,7 @@ import Compound from "./pages/mixed_simple_interest"
 import Simple from "./pages/simple_interest"
 import Loans from "./pages/loans"
 import Loansequal from "./pages/loansequal"
-import Marketnew  from "./pages/marketnews/index"
 import Purchasingpower from "./pages/Purchasingpower"
-
 import './App.css';
 
 function App() {
@@ -24,7 +22,6 @@ function App() {
           <Route path="/simple" element={<Simple />} />
           <Route path="/loans" element={<Loans />} />
           <Route path="/loansequal" element={<Loansequal />} />
-          <Route path="/marketnews" element={<Marketnew />} />
           <Route path="/purchasing_power" element={<Purchasingpower />} />
           /purchasing_power
         </Routes>

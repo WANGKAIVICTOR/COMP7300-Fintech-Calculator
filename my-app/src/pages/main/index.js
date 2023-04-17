@@ -1,58 +1,89 @@
-import React,{Component} from 'react';
+import React,{useState,useEffect } from 'react';
 import {  Card} from 'antd'
 import "./index.css";
 import Launcher from './../../components/Launcher'
 import  './../../styles';
 
-class Component1 extends Component {
-  // const navigate = useNavigate();
-  // const handleClick_kelly = () => { navigate('/kelly');window.location.reload();};
-  // const handleClick_marketnew = () => { navigate('/marketnew');window.location.reload();};
-  // const handleClick_compunds = () => { navigate('/compound');window.location.reload();};
-  // const handleClick_simple = () => { navigate('/simple');window.location.reload();};
+function Component1() {
+  const [messageList, setMessageList] = useState([]);
+  
+  function _onMessageWasSent(message) {
+  setMessageList([...messageList, message]);
+  }
+  
+  function _sendMessage(text) {
+  if (text.length > 0) {
+  setMessageList([
+  ...messageList,
+  {
+  author: 'them',
+  type: 'text',
+  data: { text },
+  },
+  ]);
+  }
+  }
 
-  constructor() {
-    super();
-    this.state = {
-      messageList: []
-    };
-  }
- 
-  _onMessageWasSent(message) {
-    this.setState({
-      messageList: [...this.state.messageList, message]
-    })
-  }
- 
-  _sendMessage(text) {
-    if (text.length > 0) {
-      this.setState({
-        messageList: [...this.state.messageList, {
-          author: 'them',
-          type: 'text',
-          data: { text }
-        }]
-      })
+  
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("http://127.0.0.1:8000/market-news?category= general");
+      const json = await response.json();
+      setData(json);
+      console.log(json)
     }
-  }
+    fetchData();
+  }, []);
+  
 
+  useEffect(() => {
+    let interval;
 
-  render(){
+    function startAnimation() {
+      interval = setInterval(() => {
+        const commentList = document.querySelector('.comment-list');
+        const items = commentList.querySelectorAll('.list-item');
+
+        // 先隐藏所有元素
+        Array.from(items).forEach(item => item.classList.remove('active'));
+
+        // 显示当前元素
+        items[0].classList.add('active');
+
+        // 执行滚动效果，将第一个元素移到最后
+        setTimeout(() => {
+          commentList.insertBefore(items[items.length-1], items[0])
+        }, 100);
+
+      }, 3500); // 每隔3秒钟滚动一次
+    }
+
+    if (data.length > 0) {
+      startAnimation(); // 启动滚动动画
+    }
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [data]);
+
   return (
     <div className="login">
       
     <div>
-      <Launcher
-        agentProfile={{
-          teamName: 'react-chat-window',
-          imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
-        }}
-        onMessageWasSent={this._onMessageWasSent.bind(this)}
-        messageList={this.state.messageList}
-        showEmoji
+    <Launcher
+      agentProfile={{
+      teamName: 'react-chat-window',
+      imageUrl:
+      'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
+      }}
+      onMessageWasSent={_onMessageWasSent}
+      messageList={messageList}
+      showEmoji
       />
     </div>
-    
       <Card className="login-container">
         {/* <h1>这里是一个九宫格</h1> */}
         <div className="title-container">
@@ -75,20 +106,33 @@ class Component1 extends Component {
           <div className="News-title">News</div>
         </div>
 
-        <div className="calculator-item-row">
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/marketnews'>Market News</a></li></div>
-        </div>
+          <div className="comment-list">
+          {/* 使用 .map() 函数遍历数据数组 */}
+          {data.map(item => (
+            <div className="list-item" key={item.id}>
+              <div className="user-face">
+                <img className="user-head" src={item.image} alt="" />  
+              </div>
+              <div className="comment">
+                <a className="user" href={item.url}>{item.headline}</a>
+                <p className="text">{item.summary}</p>
+                <div className="info">
+                  <span className="time">{new Date(item.datetime * 1000).toLocaleString()}</span>
+                  <div>{item.source}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+          </div>
+      
 
-        
-        {/* <Button onClick={handleClick_marketnew}>跳转到 marketnew</Button>
-        <Button onClick={handleClick_compunds}>跳转到 compound</Button>
-        <Button onClick={handleClick_simple}>跳转到 simple</Button>
-        <Button onClick={handleClick_marketnew}>跳转到 Component2</Button>
-        <Button onClick={handleClick_compunds}>跳转到 Component2</Button> */}
-      </Card>
+    </Card>
+
+
+
+     
+    
     </div>
   );
-  }
 }
-
 export default Component1;
