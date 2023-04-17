@@ -70,78 +70,60 @@ function Component1() {
 
   return (
     <div className="login">
+      <div className="login-container">
+        <Card >
+          {/* <h1>这里是一个九宫格</h1> */}
+          <div className="title-container">
+            <div className="Fintech-title">Fintech Calculator</div>
+          </div>
 
-      <div>
-        {/* <Launcher
-      agentProfile={{
-      teamName: 'react-chat-window',
-      imageUrl:
-      'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
-      }}
-      onMessageWasSent={_onMessageWasSent}
-      messageList={messageList}
-      showEmoji
-      /> */}
-        <Livechat />
+          <div className="calculator-item-row">
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>Kelly Calculator</a></li></div>
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/compound'>Compound Interest Calculator</a></li></div>
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/simple'>Simple Interest Calculator</a></li></div>
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loans'>Equal Loan Payment Calculator</a></li></div>
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loansequal'> Equal Principal Payment Calculator</a></li></div>
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/gdp'>GDP Growth Rate Calculator</a></li></div>
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/purchasing_power'> Devaluation Calculator</a></li></div>
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/principal'>Principal Doubling Time Calculator</a></li></div>
+            <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/percentage'> Percentage Markup Calculator</a></li></div>
+          </div>
 
-      </div>
-      <Card className="login-container">
-        {/* <h1>这里是一个九宫格</h1> */}
-        <div className="title-container">
-          <div className="Fintech-title">Fintech Calculator</div>
-        </div>
+          <div className="title-container">
+            <div className="News-title">User Data</div>
+          </div>
 
-        <div className="calculator-item-row">
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>Kelly Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/compound'>Compound Interest Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/simple'>Simple Interest Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loans'>Equal Loan Payment Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loansequal'> Equal Principal Payment Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/gdp'>GDP Growth Rate Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/purchasing_power'> Devaluation Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/principal'>Principal Doubling Time Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/percentage'> Percentage Markup Calculator</a></li></div>
-        </div>
-
-        <div className="title-container">
-          <div className="News-title">User Data</div>
-        </div>
-
-        {/* <div className="login-container"> */}
-        {/* 使用 .map() 函数遍历数据数组 */}
-        {/* <Barchart  /> */}
-        {/* </div> */}
-
-        <div className="title-container">
-          <div className="News-title">News</div>
-        </div>
-
-        <div className="comment-list">
+          {/* <div className="login-container"> */}
           {/* 使用 .map() 函数遍历数据数组 */}
-          {data.map(item => (
-            <div className="list-item" key={item.id}>
-              <div className="user-face">
-                <img className="user-head" src={item.image} alt="" />
-              </div>
-              <div className="comment">
-                <a className="user" href={item.url}>{item.headline}</a>
-                <p className="text">{item.summary}</p>
-                <div className="info">
-                  <span className="time">{new Date(item.datetime * 1000).toLocaleString()}</span>
-                  <div>{item.source}</div>
+          {/* <Barchart  /> */}
+          {/* </div> */}
+
+          <div className="title-container">
+            <div className="News-title">News</div>
+          </div>
+
+          <div className="comment-list">
+            {/* 使用 .map() 函数遍历数据数组 */}
+            {data.map(item => (
+              <div className="list-item" key={item.id}>
+                <div className="user-face">
+                  <img className="user-head" src={item.image} alt="" />
+                </div>
+                <div className="comment">
+                  <a className="user" href={item.url}>{item.headline}</a>
+                  <p className="text">{item.summary}</p>
+                  <div className="info">
+                    <span className="time">{new Date(item.datetime * 1000).toLocaleString()}</span>
+                    <div>{item.source}</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
 
-      </Card>
-
-
-
-
-
+        </Card>
+      </div>
     </div>
   );
 }

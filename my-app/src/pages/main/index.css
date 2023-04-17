@@ -34,30 +34,30 @@
 }
 
 
-.Fintech-title{
+.Fintech-title {
     font-weight: bold;
     color: #f88102;
     left: 250px;
     position: relative;
-    font-size:40px
+    font-size: 40px
 }
 
-.News-title{
+.News-title {
     font-weight: bold;
     color: #f88102;
     left: 380px;
     position: relative;
-    font-size:40px
+    font-size: 40px
 }
 
-.title-container{
+.title-container {
     /* border:1px solid #f77206; */
-    align-items: center; 
+    align-items: center;
     justify-content: flex-start;
     margin-bottom: 20px;
 }
 
-.bottom-container{
+.bottom-container {
     margin-right: 30px;
     margin-bottom: 30px;
     margin-left: 10px;
@@ -80,15 +80,16 @@
     display: table-cell;
     font-size: 18px;
     vertical-align: middle;
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
     cursor: pointer;
     height: 70px;
     width: 200px;
-   
+
 }
-.gradient-button{
+
+.gradient-button {
     background: linear-gradient(128deg, #FAFAFA 78%, #E7F1F7 60%);
-    
+
 }
 
 .calculator-item-row {
@@ -99,25 +100,27 @@
     margin-left: 30px;
 }
 
-.comment-list{
+.comment-list {
     height: 170px;
-    overflow-y: hidden; /* 隐藏垂直滚动条 */
-    position: relative; /* 设置父容器为相对定位 */
+    overflow-y: hidden;
+    /* 隐藏垂直滚动条 */
+    position: relative;
+    /* 设置父容器为相对定位 */
 }
 
 
 
- /* .list-item {
+/* .list-item {
     position: absolute; 
     animation: slide-up 1s linear infinite alternate;
     opacity: 0;
   } */
-  
-  /* 当前显示的元素样式 */
-  /* .list-item.active {
+
+/* 当前显示的元素样式 */
+/* .list-item.active {
     opacity: 1;
-  } */ 
-  
+  } */
+
 /* @keyframes slide-up {
 from {
     transform: translateY(0%);
