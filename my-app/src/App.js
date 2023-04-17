@@ -12,14 +12,15 @@ import GDP from "./pages/gdp"
 import Pincipal from "./pages/principal"
 import Percentage from "./pages/percentage"
 import './App.css';
-import Livechat from './pages/livechat';
+import Chat from './pages/chat';
+
 
 function App() {
   return (
     <div>
-      <div className='chat'>
-        <Livechat />
-      </div>
+      {/* <div className='chat'> */}
+        <Chat />
+      {/* </div> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />

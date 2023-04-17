@@ -5,7 +5,6 @@ import Launcher from './../../components/Launcher'
 import './../../styles';
 import Barchart from './barchart';
 import Livechat from './../livechat'
-import { Bar } from '@ant-design/plots';
 import BarChart from '../barchart';
 
 function Component1() {
@@ -115,6 +114,7 @@ function Component1() {
           </div>
 
           <div>
+            {/* <Bar {...config} /> */}
             <BarChart />
           </div>
 

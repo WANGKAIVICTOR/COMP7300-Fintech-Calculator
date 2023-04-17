@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Launcher from './../components/Launcher'
 
 
@@ -8,7 +8,7 @@ function Livechat() {
     function _onMessageWasSent(message) {
         setMessageList([...messageList, message]);
     }
-    
+
     // fetch the games according to the genres
     const [data, setData] = useState([])
 
@@ -29,18 +29,30 @@ function Livechat() {
     console.log(data);
 
 
+    // return (
+    //     <Launcher
+    //         agentProfile={{
+    //             teamName: 'react-chat-window',
+    //             imageUrl:
+    //                 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
+    //         }}
+    //         onMessageWasSent={_onMessageWasSent}
+    //         messageList={messageList}
+    //         showEmoji
+    //     />
+    // );
     return (
-        <Launcher
-            agentProfile={{
-                teamName: 'react-chat-window',
-                imageUrl:
-                    'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
-            }}
-            onMessageWasSent={_onMessageWasSent}
-            messageList={messageList}
-            showEmoji
-        />
-    );
+        <div className="form-section">
+            <textarea
+                rows="5"
+                className="form-control"
+                placeholder="Ask me anything..."
+            ></textarea>
+            <button className="btn">
+                Generate Response
+            </button>
+        </div>
+    )
 }
 
 
