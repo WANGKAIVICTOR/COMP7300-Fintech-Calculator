@@ -12,7 +12,6 @@
 }
 
 .main-pages {
-
     height: 1000px;
     background: center/cover url('login.png');
     background-repeat: repeat;
@@ -56,7 +55,7 @@
     margin-top: 40px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     padding: 10px;
 }
@@ -71,7 +70,8 @@
     color: #f88102;
     left: 250px;
     position: relative;
-    font-size: 40px
+    font-size: 40px;
+    
 }
 
 .News-title {

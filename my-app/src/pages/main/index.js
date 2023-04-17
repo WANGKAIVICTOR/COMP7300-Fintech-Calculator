@@ -96,10 +96,7 @@ function Component1() {
               </div>
             ))}
           </div>
-
-
         </Card>
-      
     </div>
   );
 }
