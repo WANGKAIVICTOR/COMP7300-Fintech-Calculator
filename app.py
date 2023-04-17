@@ -65,6 +65,7 @@ class Loan(db.Model):
     rate = db.Column(db.Float)
     total = db.Column(db.Float)
 
+
 class Purchasing(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
@@ -72,6 +73,10 @@ class Purchasing(db.Model):
     annual_inflation_rate = db.Column(db.Float)
     time = db.Column(db.Float)
     result = db.Column(db.Float)
+
+class Count(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
 
 # Create table model
 with app.app_context():
@@ -337,6 +342,80 @@ def data_explore():
     except Exception as e:
         logger.error(e)
         abort(500)
+
+@app.route('/gdp_growth_rate', methods=['GET'])
+def gdp_growth_rate():
+    try:
+        current_year_gdp = request.args.get("current_year_gdp")
+        last_year_gdp = request.args.get("last_year_gdp")
+        gdp_growth_rate = functions.gdp_growth_rate(current_year_gdp, last_year_gdp)
+
+        # insert to db
+        session = connection()
+        session.add(Count(name='gdp_growth_rate'))
+        session.commit()
+        session.close()
+        logger.info("Inserted one gdp_growth_rate entity.")
+        
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed compound interest formula",
+            "current_year_gdp": current_year_gdp,
+            "last_year_gdp": last_year_gdp,
+            "gdp_growth_rate": gdp_growth_rate,
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+@app.route('/doubling_time', methods=['GET'])
+def doubling_time():
+    try:
+        r = request.args.get("r")
+        t = functions.doubling_time(r)
+
+        # insert to db
+        session = connection()
+        session.add(Count(name='doubling_time'))
+        session.commit()
+        session.close()
+        logger.info("Inserted one purchasing_power entity.")
+
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed compound interest formula",
+            "rate": r,
+            "time": t,
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+@app.route('/markup_percentage', methods=['GET'])
+def markup_percentage():
+    try:
+        price = request.args.get("price")
+        cost = request.args.get("cost")
+        markup_percentage = functions.markup_percentage(price, cost)
+
+        # insert to db
+        session = connection()
+        session.add(Count(name='doubling_time'))
+        session.commit()
+        session.close()
+        logger.info("Inserted one doubling_time entity.")
+
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed compound interest formula",
+            "price": price,
+            "cost": cost,
+            "markup_percentage":markup_percentage
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)

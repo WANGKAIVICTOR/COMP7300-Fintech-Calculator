@@ -1,4 +1,5 @@
 import finnhub
+import math
 import configparser
 config = configparser.ConfigParser()
 config.read('config.ini', encoding='utf-8')
@@ -136,3 +137,38 @@ def purchasing_power(initial_amount, annual_inflation_rate, time):
     a = float(initial_amount) * \
         ((100 / (100 + int(annual_inflation_rate))) ** int(time))
     return round(a, 2)
+
+def gdp_growth_rate(current_year_gdp, last_year_gdp):
+    """
+    Calculate the gdp growth rate
+    Para:
+        current_year_gdp
+        last_year_gdp
+    Return:
+        rate
+    """
+    gdp_growth_rate = ((current_year_gdp - last_year_gdp) / last_year_gdp) * 100
+    return gdp_growth_rate
+
+def doubling_time(r):
+    """
+    Calculate the time it takes to make principle double
+    Para:
+        r:rate
+    return:
+        time
+    """
+    t = math.log(2) / math.log(1 + (r / 100))
+    return t
+
+def markup_percentage(price, cost):
+    """
+    Calculate the percentage markup
+    Para:
+        price
+        cost
+    return:
+        rate
+    """
+    markup_percentage = ((price - cost) / cost) * 100
+    return markup_percentage
