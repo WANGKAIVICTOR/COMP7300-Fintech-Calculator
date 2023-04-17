@@ -201,19 +201,11 @@ function Mixed_simple_interest(){
             </Form>
             
 
-            <h1 className="title">Simple interest is...</h1>
+            <h1 className="title">Compound interest is...</h1>
             <div className='input-container'>
             <div className="paragraph-container">
                 <p className='paragraph'>
-                    "Simple interest refers to the cost of borrowing or the income of lending.
-                     It is a method of calculating interest.
-                      The calculation of simple interest depends on the amount of the loan or contribution.
-                      The length of the borrowing period of the balance and the level of interest rates in the market.
-                      The simple interest calculation method, as long as the principal earns interest during the loan period, no matter how long the time is, the interest generated will not be added to the principal and the interest will be double-calculated. 
-                      The "principal" mentioned here refers to the original full amount of the goods to others to collect interest, and the "interest" refers to the situation that the borrower pays the lender the amount exceeding the principal and the period is not an integer number of years. 
-                      For example, the deposit period of a depositor is 3 years, 7 months and 12 days.
-                      At this time, the calculation method of the income is still in accordance with the above formula, but the number of months and days must be converted into years.
-                      In the date conversion in the field of economic mathematics, the following conventions are followed: there are 360 days in a year and 30 days in a month.
+                    " Compound interest is compound interest, which means that annual income can also generate income. Specifically, the whole loan term is divided into several sections, and the interest calculated according to the principal of the previous section should be added into the principal to form the increased principal, which will serve as the principal base for the calculation of interest of the next section until the interest of each section is calculated. After the sum, the interest of the whole loan period can be obtained. Simply put, it is commonly known as compound interest.
                 </p> 
               </div>
             </div>

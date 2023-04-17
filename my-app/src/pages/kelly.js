@@ -29,14 +29,14 @@ function Kellys(){
   };
 
     return (
-    <div className="login">
+    <div className="login-pages">
       <Card className="calculator-container">
           <h1 className="title">Configuration</h1>
           <Form validateTrigger={['onBlur', 'onChange']} onFinish={handleSubmit}>
 
 
       <div className='input-container'>
-        <div className='para-test'>获胜率</div>
+        <div className='para-test'>the odds</div>
         <Form.Item
         onChange={(event) => setOdds(event.target.value)}
 
@@ -61,7 +61,7 @@ function Kellys(){
       </div>
       
       <div className='input-container'>
-      <div className='para-test'>净赔率(胜)</div>
+      <div className='para-test'>chance of wining</div>
       <Form.Item
       onChange={(event) => setP(event.target.value)}
       name="NetOdds_Win"
@@ -85,7 +85,7 @@ function Kellys(){
       
 
       <div className='input-container'>
-      <div className='para-test'>落败率</div>
+      <div className='para-test'>chance of losing</div>
       <Form.Item
       
       onChange={(event) => setQ(event.target.value)}

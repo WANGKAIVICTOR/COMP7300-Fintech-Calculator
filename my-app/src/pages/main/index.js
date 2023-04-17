@@ -3,7 +3,6 @@ import { Card } from 'antd'
 import "./index.css";
 import Launcher from './../../components/Launcher'
 import './../../styles';
-import Barchart from './barchart';
 import Livechat from './../livechat'
 import { Bar } from '@ant-design/plots';
 import BarChart from '../barchart';
@@ -90,7 +89,7 @@ function Component1() {
 
 
   return (
-    <div className="login">
+    <div className="login-pages">
       <div className="login-container">
         <Card >
           {/* <h1>这里是一个九宫格</h1> */}
