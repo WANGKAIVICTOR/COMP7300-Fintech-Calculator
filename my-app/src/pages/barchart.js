@@ -23,9 +23,9 @@ function BarChart() {
         xField: 'value',
         yField: 'name',
         marginRatio: 0,
-        // scrollbar: {
-        //     type: 'vertical',
-        // },
+        scrollbar: {
+            type: 'vertical',
+        },
         dodgePadding: 4,
         label: {
             position: 'middle',
