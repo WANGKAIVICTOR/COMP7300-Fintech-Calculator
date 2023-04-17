@@ -182,7 +182,7 @@ function Loans(){
             </Form>
             
 
-            <h1 className="title">Simple interest is...</h1>
+            {/* <h1 className="title">Simple interest is...</h1>
             <div className='input-container'>
             <div className="paragraph-container">
                 <p className='paragraph'>
@@ -197,7 +197,7 @@ function Loans(){
                       In the date conversion in the field of economic mathematics, the following conventions are followed: there are 360 days in a year and 30 days in a month.
                 </p> 
               </div>
-            </div>
+            </div> */}
       </Card>
     </div>
     );

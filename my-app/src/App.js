@@ -8,6 +8,9 @@ import Simple from "./pages/simple_interest"
 import Loans from "./pages/loans"
 import Loansequal from "./pages/loansequal"
 import Purchasingpower from "./pages/Purchasingpower"
+import GDP from "./pages/gdp"
+import Pincipal from "./pages/principal"
+import Percentage from "./pages/percentage"
 import './App.css';
 
 function App() {
@@ -23,7 +26,11 @@ function App() {
           <Route path="/loans" element={<Loans />} />
           <Route path="/loansequal" element={<Loansequal />} />
           <Route path="/purchasing_power" element={<Purchasingpower />} />
-          /purchasing_power
+
+          <Route path="/gdp" element={<GDP />} />
+          <Route path="/principal" element={<Pincipal />} />
+          <Route path="/percentage" element={<Percentage />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

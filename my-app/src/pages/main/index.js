@@ -31,12 +31,11 @@ function Component1() {
       const response = await fetch("http://127.0.0.1:8000/market-news?category= general");
       const json = await response.json();
       setData(json);
-      // console.log(json)
+      console.log(json)
     }
     fetchData();
   }, []);
   
-
   useEffect(() => {
     let interval;
     function startAnimation() {
@@ -53,11 +52,11 @@ function Component1() {
         // 执行滚动效果，将第一个元素移到最后
         setTimeout(() => {
           commentList.insertBefore(items[items.length-1], items[0])
-        }, 100);
+        }, 300);
       }, 3000); // 每隔3秒钟滚动一次
     }
 
-    if (!data || data.length === 0) {
+    if (data.length > 0) {
       startAnimation(); // 启动滚动动画
     }
 
@@ -91,24 +90,24 @@ function Component1() {
         
         <div className="calculator-item-row">
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>Kelly Calculator</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/compound'>Compound Interest</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/simple'>Simple Interest</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loans'>equal principal payment</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loansequal'>Equal loan payment</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/test'>test</a></li></div>          
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/purchasing_power'>purchasing power</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>          
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/compound'>Compound Interest Calculator</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/simple'>Simple Interest Calculator</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loans'>Equal Loan Payment Calculator</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loansequal'> Equal Principal Payment Calculator</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/gdp'>GDP Growth Rate Calculator</a></li></div>          
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/purchasing_power'> Devaluation Calculator</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/principal'>Principal Doubling Time Calculator</a></li></div>          
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/percentage'> Percentage Markup Calculator</a></li></div>
         </div>
         
         <div className="title-container">
           <div className="News-title">User Data</div>
         </div>
         
-        <div className="login-container">
+        {/* <div className="login-container"> */}
           {/* 使用 .map() 函数遍历数据数组 */}
-          <Barchart  />
-          </div>
+          {/* <Barchart  /> */}
+          {/* </div> */}
 
         <div className="title-container">
           <div className="News-title">News</div>

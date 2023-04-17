@@ -2,25 +2,19 @@ import React,{useState} from 'react';
 import { Form, Input, Button,  Card } from 'antd'
 import "./kelly.css";
 
-function Loans_qual(){
-    const [i, seti] = useState(0); //initial_amount
-    const [a, seta] = useState(0);  //annual_inflation_rate
-    const [t, sett] = useState(0);  //time 
-    const [value, setValue] = useState(0);
+function Loans(){
+    const [c, setc] = useState(0); //current_year_gdp
+    const [l, setl] = useState(0);  //years
     
+    const [gdp_growth_rate, setRate] = useState(0);
 
-    // function onFinishFiled (errorInfo) {console.log(errorInfo)};
-    // function onFinish (values)  
-    // {
-    //     console.log(values.Winning_Per) 
-    // }
     const handleSubmit =  () => {
       // event.preventDefault();
-      fetch(`http://127.0.0.1:8000/purchasing_power?initial_amount=${i}&annual_inflation_rate=${a}&time=${t}`,{mode: 'cors'})
+      fetch(`http://127.0.0.1:8000/gdp_growth_rate?current_year_gdp=${c}&last_year_gdp=${l}`,{mode: 'cors'})
       .then(response => response.json())
       .then(data => {
       console.log(data);
-      setValue(data['value']);
+      setRate(data["gdp_growth_rate"]);
       })
       
     .catch(error => {
@@ -46,13 +40,13 @@ function Loans_qual(){
 
 
       <div className='input-container'>
-        <div className='para-test'>initial amount</div>
+        <div className='para-test'>current year gdp</div>
         <Form.Item
-        onChange={(event) => seti(event.target.value)}
+        onChange={(event) => setc(event.target.value)}
         name="Capital"
         rules={[
             {
-            pattern: /^(0|[1-9]\d?|1000000)$/,   //正则化数字
+            pattern: /^(0|[1-9]\d?|100)$/,   //正则化数字
             validateTrigger: 'onBlur',
             message:'please input the correct num'
             },
@@ -69,9 +63,9 @@ function Loans_qual(){
       </div>
       
       <div className='input-container'>
-      <div className='para-test'>annual inflation rate</div>
+      <div className='para-test'>last year gdp</div>
       <Form.Item
-      onChange={(event) => seta(event.target.value)}
+      onChange={(event) => setl(event.target.value)}
       name="Year"
       rules={[
           { 
@@ -92,33 +86,7 @@ function Loans_qual(){
       </div>
       
 
-      <div className='input-container'>
-      <div className='para-test'>Time</div>
-      <Form.Item
-      
-      onChange={(event) => sett(event.target.value)}
-      name="Number of installments"
-      rules={[
-          {     //月份正则化
-              pattern: /^(0|[1-9]\d?|12)$/,
-              validateTrigger: 'onBlur',
-              message:'please input the Number of installments'
-          },
-          { 
-              required: true, 
-              message: 'please input the num' 
-          }
-      ]}>
-
-      <div>
-      <Input size="large" placeholder="please input the Number of installments" defaultValue="0" maxLength={30} />
-      </div>
-
-      </Form.Item>
-      </div>
-        
-
-    
+     
     
 
 
@@ -127,21 +95,22 @@ function Loans_qual(){
                 Summit
             </Button>
           </Form.Item>
+
+
+
           <h1 className="title">Calculation Result</h1>
           <div className='input-container'>
-          <div className='para-test'>Value</div>
+          <div className='para-test'>GDP Growth Rate</div>
             <Form.Item name="interest">
-                <div><Input size="large" type='number' value={value} maxLength={30} readOnly/></div>
+                <div><Input size="large" type='number' value={gdp_growth_rate} maxLength={30} readOnly/></div>
             </Form.Item>
           </div>
-
-            
-
-          </Form>
+            </Form>
+        
       </Card>
     </div>
     );
 }
 
 
-export default Loans_qual;
+export default Loans;
