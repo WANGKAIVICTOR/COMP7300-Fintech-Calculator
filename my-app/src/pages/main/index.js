@@ -1,15 +1,58 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {  Card} from 'antd'
 import "./index.css";
-function Component1() {
+import Launcher from './../../components/Launcher'
+import  './../../styles';
+
+class Component1 extends Component {
   // const navigate = useNavigate();
   // const handleClick_kelly = () => { navigate('/kelly');window.location.reload();};
   // const handleClick_marketnew = () => { navigate('/marketnew');window.location.reload();};
   // const handleClick_compunds = () => { navigate('/compound');window.location.reload();};
   // const handleClick_simple = () => { navigate('/simple');window.location.reload();};
 
+  constructor() {
+    super();
+    this.state = {
+      messageList: []
+    };
+  }
+ 
+  _onMessageWasSent(message) {
+    this.setState({
+      messageList: [...this.state.messageList, message]
+    })
+  }
+ 
+  _sendMessage(text) {
+    if (text.length > 0) {
+      this.setState({
+        messageList: [...this.state.messageList, {
+          author: 'them',
+          type: 'text',
+          data: { text }
+        }]
+      })
+    }
+  }
+
+
+  render(){
   return (
     <div className="login">
+      
+    <div>
+      <Launcher
+        agentProfile={{
+          teamName: 'react-chat-window',
+          imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
+        }}
+        onMessageWasSent={this._onMessageWasSent.bind(this)}
+        messageList={this.state.messageList}
+        showEmoji
+      />
+    </div>
+    
       <Card className="login-container">
         {/* <h1>这里是一个九宫格</h1> */}
         <div className="title-container">
@@ -33,9 +76,7 @@ function Component1() {
         </div>
 
         <div className="calculator-item-row">
-          
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/marketnews'>Market News</a></li></div>
-        
         </div>
 
         
@@ -47,6 +88,7 @@ function Component1() {
       </Card>
     </div>
   );
+  }
 }
 
 export default Component1;
