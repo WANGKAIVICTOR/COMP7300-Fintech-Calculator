@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from 'antd'
 import "./index.css";
-import Launcher from './../../components/Launcher'
-import './../../styles';
-import Barchart from './barchart';
-import Livechat from './../livechat'
 import BarChart from '../barchart';
 
 function Component1() {
