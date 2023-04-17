@@ -346,8 +346,8 @@ def data_explore():
 @app.route('/gdp_growth_rate', methods=['GET'])
 def gdp_growth_rate():
     try:
-        current_year_gdp = request.args.get("current_year_gdp")
-        last_year_gdp = request.args.get("last_year_gdp")
+        current_year_gdp = float(request.args.get("current_year_gdp"))
+        last_year_gdp = float(request.args.get("last_year_gdp"))
         gdp_growth_rate = functions.gdp_growth_rate(current_year_gdp, last_year_gdp)
 
         # insert to db
@@ -371,7 +371,7 @@ def gdp_growth_rate():
 @app.route('/doubling_time', methods=['GET'])
 def doubling_time():
     try:
-        r = request.args.get("r")
+        r = float(request.args.get("r"))
         t = functions.doubling_time(r)
 
         # insert to db
@@ -394,8 +394,8 @@ def doubling_time():
 @app.route('/markup_percentage', methods=['GET'])
 def markup_percentage():
     try:
-        price = request.args.get("price")
-        cost = request.args.get("cost")
+        price = float(request.args.get("price"))
+        cost = float(request.args.get("cost"))
         markup_percentage = functions.markup_percentage(price, cost)
 
         # insert to db

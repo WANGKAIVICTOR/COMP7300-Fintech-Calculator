@@ -148,7 +148,7 @@ def gdp_growth_rate(current_year_gdp, last_year_gdp):
         rate
     """
     gdp_growth_rate = ((current_year_gdp - last_year_gdp) / last_year_gdp) * 100
-    return gdp_growth_rate
+    return round(gdp_growth_rate,2)
 
 def doubling_time(r):
     """
@@ -159,7 +159,7 @@ def doubling_time(r):
         time
     """
     t = math.log(2) / math.log(1 + (r / 100))
-    return t
+    return round(t,2)
 
 def markup_percentage(price, cost):
     """
@@ -171,4 +171,4 @@ def markup_percentage(price, cost):
         rate
     """
     markup_percentage = ((price - cost) / cost) * 100
-    return markup_percentage
+    return round(markup_percentage,2)
