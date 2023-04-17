@@ -20,14 +20,25 @@ function Component1() {
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>Kelly Calculator</a></li></div>
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/compound'>Compound Interest</a></li></div>
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/simple'>Simple Interest</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/marketnews'>Marketnews</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loans'>Loans</a></li></div>
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loansequal'>Loans equal</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loans'>equal principal payment</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/loansequal'>Equal loan payment</a></li></div>
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/test'>test</a></li></div>          
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>          
-          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/test'>test</a></li></div>          
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>
         </div>
+        
+        <div className="title-container">
+          <div className="News-title">News</div>
+        </div>
+
+        <div className="calculator-item-row">
           
+          <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/marketnews'>Marketnews</a></li></div>
+        
+        </div>
+
+        
         {/* <Button onClick={handleClick_marketnew}>跳转到 marketnew</Button>
         <Button onClick={handleClick_compunds}>跳转到 compound</Button>
         <Button onClick={handleClick_simple}>跳转到 simple</Button>

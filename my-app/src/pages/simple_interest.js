@@ -34,10 +34,10 @@ function Simple_interest(){
 
     return (
     <div className="login">
-        <h1 className="title">simple</h1>
+       
 
       <Card className="calculator-container">
-          <h1 className="title">参数设置</h1>
+          <h1 className="title">Configuration</h1>
           <Form validateTrigger={['onBlur', 'onChange']}
             // initialValues={{
             //     "Winning_Per": 70,

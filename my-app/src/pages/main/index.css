@@ -20,7 +20,7 @@
 
 .login-container {
     width: 950px;
-    height: 500px;
+    height: 700px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -38,6 +38,14 @@
     font-weight: bold;
     color: #f88102;
     left: 250px;
+    position: relative;
+    font-size:40px
+}
+
+.News-title{
+    font-weight: bold;
+    color: #f88102;
+    left: 350px;
     position: relative;
     font-size:40px
 }

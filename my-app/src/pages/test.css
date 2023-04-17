@@ -225,7 +225,7 @@
   .user-head {
     width: 48px;
     height: 48px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
   }
   
   .textarea-container {
@@ -317,12 +317,6 @@
     background-position: -472px -24px;
   }
   
-  .comment-emoji .text {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
-    font-size: 12px !important;
-  }
   
   .tabs-order {
     margin: 0 0 24px 0;
@@ -406,7 +400,7 @@
   .comment .text {
     line-height: 20px;
     padding: 2px 0;
-    font-size: 14px;
+    font-size: 16px;
     text-shadow: none;
     overflow: hidden;
     word-wrap: break-word;
@@ -443,49 +437,15 @@
     margin-right: 5px;
     background-position: -153px -25px;
   }
-  .like:hover > i {
-    background-position: -218px -25px;
-  }
+
   .info .liked > i {
     background-position: -154px -89px;
   }
   
-  .hate {
-    cursor: pointer;
-    margin-right: 15px;
-  }
-  
-  .hate > i {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    vertical-align: text-top;
-    margin-right: 5px;
-    background-position: -153px -153px;
-  }
-  
-  .hate:hover > i {
-    background-position: -217px -153px;
-  }
   .info .hated > i {
     background-position: -154px -217px;
   }
   
-  .btn-hover {
-    padding: 0 5px;
-    border-radius: 4px;
-    margin-right: 15px;
-    cursor: pointer;
-    display: inline-block;
-  }
-  
-  .btn-hover:hover {
-    color: #00a1d6;
-    background: #e5e9ef;
-  }
-  
-
-
 
 
 .card {
