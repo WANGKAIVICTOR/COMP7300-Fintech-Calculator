@@ -19,7 +19,7 @@ function Loans(){
     // }
     const handleSubmit =  () => {
       // event.preventDefault();
-      fetch(`http://158.182.6.106:8000/decline_monthly?k=${k}&y=${y}&t=${t}&i=${i}`,{mode: 'cors'})
+      fetch(`http://127.0.0.1:8000/decline_monthly?k=${k}&y=${y}&t=${t}&i=${i}`,{mode: 'cors'})
       .then(response => response.json())
       .then(data => {
       console.log(data);

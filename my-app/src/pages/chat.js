@@ -12,7 +12,7 @@ function Chat() {
 
     const handleNewUserMessage = (newMessage) => {
         console.log(`New message incoming! ${newMessage}`);
-        fetch('https://43c2-35-204-112-1.ngrok.io/', {
+        fetch('https://e9df-35-204-112-1.ngrok.io/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
