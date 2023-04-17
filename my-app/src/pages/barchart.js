@@ -38,7 +38,7 @@ function BarChart() {
             radius: [2, 2, 0, 0],
         },
         style: {
-            height: 400,
+            height: 200,
         },
     };
 
