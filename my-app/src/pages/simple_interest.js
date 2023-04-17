@@ -57,7 +57,7 @@ function Simple_interest(){
         name="Capital"
         rules={[
             {
-            pattern: /^(0|[1-9]\d?|100)$/,   //正则化数字
+            pattern: /^\d+$/,   //正则化数字
             validateTrigger: 'onBlur',
             message:'please input the correct num'
             },
@@ -81,7 +81,7 @@ function Simple_interest(){
       rules={[
           { 
             // 年份正则化
-              pattern: /^(0|[1-9]\d?|100)$/, 
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the year'
           },
@@ -105,7 +105,7 @@ function Simple_interest(){
       name="Months"
       rules={[
           {     //月份正则化
-              pattern: /^(0|[1-9]\d?|12)$/,
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the Month'
           },
@@ -130,7 +130,7 @@ function Simple_interest(){
       name="Day"
       rules={[
           {     //天数正则化
-              pattern: /^(0|[1-9]\d?|31)$/,
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the Month'
           },
@@ -155,9 +155,9 @@ function Simple_interest(){
       name="rates"
       rules={[
           {     
-              pattern: /^(0|[1-9]\d?|100)$/,
+              pattern: /^(0(\.\d+)?|1(\.0+)?)$/,
               validateTrigger: 'onBlur',
-              message:'please input the rates'
+              message:'please input the rates from 0.0 - 1.0'
           },
           { 
               required: true, 
@@ -204,12 +204,9 @@ function Simple_interest(){
             <div className='input-container'>
             <div className="paragraph-container">
                 <p className='paragraph'>
-                    "Compound interest, which means that the annual income can also generate income. 
-                    Specifically, the entire loan period is divided into several sections, and the interest calculated on the basis of the previous section is added to the principal to form an increased principal. 
-                    The increased principal is used as the principal base for calculating interest in the next period, 
-                    until the interest of each period is calculated, 
-                    and after summing up, the interest for the entire loan period is obtained, 
-                    which is commonly known as rolling interest.
+                    "Simple interest refers to the cost of borrowing money or the return on lending money. Simple interest is a method of calculating interest. The calculation of simple interest depends on factors such as the principal amount of the loan or contribution, the length of time the balance is borrowed and the level of market interest rate
+    Under the simple interest method, as long as the principal earns interest over the life of the loan, no matter how long it is, the interest accrues without any human interest. "Principal" here refers to the original full amount of the goods given to another person for interest, and "interest" refers to the amount the borrower pays the lender in excess of the principal amount
+    If the term is not a round number of years, for example, the depositor has a term of 3 years, 7 months and 12 days, then the return will be calculated according to the above formula, but the months and days will be converted into adult numbers. The date conversion in the field of economics and mathematics follows the following convention: there are 360 days in a year and 30 days in a month."
                 </p> 
               </div>
             </div>

@@ -55,7 +55,7 @@ function Mixed_simple_interest(){
         name="Capital"
         rules={[
             {
-            pattern: /^(0|[1-9]\d?|100)$/,   //正则化数字
+            pattern: /^\d+$/,  //正则化数字
             validateTrigger: 'onBlur',
             message:'please input the correct num'
             },
@@ -82,7 +82,7 @@ function Mixed_simple_interest(){
       rules={[
           { 
             // 年份正则化
-              pattern: /^(0|[1-9]\d?|100)$/, 
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the year'
           },
@@ -106,7 +106,7 @@ function Mixed_simple_interest(){
       name="Months"
       rules={[
           {     //月份正则化
-              pattern: /^(0|[1-9]\d?|12)$/,
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the Month'
           },
@@ -131,7 +131,7 @@ function Mixed_simple_interest(){
       name="Day"
       rules={[
           {     //天数正则化
-              pattern: /^(0|[1-9]\d?|31)$/,
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the Month'
           },
@@ -156,7 +156,7 @@ function Mixed_simple_interest(){
       name="rates"
       rules={[
           {     
-              pattern: /^(0|[1-9]\d?|100)$/,
+              pattern: /^(0(\.\d+)?|1(\.0+)?)$/,
               validateTrigger: 'onBlur',
               message:'please input the rates'
           },

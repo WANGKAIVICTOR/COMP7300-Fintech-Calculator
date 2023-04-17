@@ -45,7 +45,7 @@ function Kellys(){
             {
             pattern: /^(0|[1-9]\d?|100)$/,
             validateTrigger: 'onBlur',
-            message:'please input the correct num between [0,100]'
+            message:'please input the rates like 1-100%'
             },
             { 
               required: true, 
@@ -69,7 +69,7 @@ function Kellys(){
           {
               pattern: /^(0|[1-9]\d?|100)$/,
               validateTrigger: 'onBlur',
-              message:'please input the num between [0,100]'
+              message:'please input the rates like 1-100%'
           },
           { 
             required: true, 
@@ -94,7 +94,7 @@ function Kellys(){
           {
               pattern: /^(0|[1-9]\d?|100)$/,
               validateTrigger: 'onBlur',
-              message:'please input the num between [0,100]'
+              message:'please input the rates like 1-100%'
           },
           { 
               required: true, 
@@ -103,7 +103,7 @@ function Kellys(){
       ]}>
 
       <div>
-      <Input size="large" placeholder="请输入落败率" defaultValue="0" maxLength={30} />
+      <Input size="large" placeholder="please input the num" defaultValue="0" maxLength={30} />
       </div>
 
       </Form.Item>
@@ -132,6 +132,17 @@ function Kellys(){
        
 
           </Form>
+
+
+          <h1 className="title">Kelly Formula is...</h1>
+            <div className='input-container'>
+            <div className="paragraph-container">
+                <p className='paragraph'>
+                    " The Kelly Criterion is a financial management strategy used to determine the optimal amount of capital to allocate to a single investment or trade. The formula calculates the percentage of the total portfolio value that should be invested in a particular opportunity based on the potential return and the investor's level of risk aversion. The Kelly Criterion is widely used by traders, investors, and gamblers to manage their capital effectively and maximize returns while minimizing risks. The formula was originally developed by John L. Kelly Jr. in the 1950s and has since been applied to various fields where risk and reward are involved."
+                </p> 
+              </div>
+            </div>
+
       </Card>
     </div>
     );

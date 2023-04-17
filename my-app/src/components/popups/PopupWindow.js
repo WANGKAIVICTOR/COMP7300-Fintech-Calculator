@@ -18,7 +18,7 @@ class PopupWindow extends Component {
     clickedOutside && this.props.onClickedOutside(e);
   }
 
-  render() {
+  render() { 
     const { isOpen, children } = this.props;
     return (
       <div className="sc-popup-window" ref={e => this.emojiPopup = e}>

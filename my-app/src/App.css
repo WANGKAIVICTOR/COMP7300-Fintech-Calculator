@@ -39,24 +39,7 @@
 }
 
 .chat {
-  position: absolute;
+  position: fixed;
   z-index: 9999;
 }
 
-
-.pages {
-  height: 100%; 
-  width: 50%;
-   background: #42b983; 
-    
-    /* position: absolute;  */
-    /* left: 0;
-    top: 0; */
-    /* width: 100%;
-    height: 100%;
-    background: center/cover url('login.png');
-    background-size: cover; 
-    background-position: center;
-    background-repeat: repeat-y;
-    background-attachment: fixed; */
-}

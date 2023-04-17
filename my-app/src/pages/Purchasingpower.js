@@ -30,7 +30,7 @@ function Loans_qual(){
 
 
     return (
-    <div className="login">
+    <div className="login-pages">
       <Card className="calculator-container">
           <h1 className="title">Configuration</h1>
           <Form validateTrigger={['onBlur', 'onChange']}
@@ -46,13 +46,13 @@ function Loans_qual(){
 
 
       <div className='input-container'>
-        <div className='para-test'>initial amount</div>
+        <div className='para-test'>Initial amount</div>
         <Form.Item
         onChange={(event) => seti(event.target.value)}
         name="Capital"
         rules={[
             {
-            pattern: /^(0|[1-9]\d?|1000000)$/,   //正则化数字
+              pattern: /^\d+$/,   //正则化数字
             validateTrigger: 'onBlur',
             message:'please input the correct num'
             },
@@ -69,7 +69,7 @@ function Loans_qual(){
       </div>
       
       <div className='input-container'>
-      <div className='para-test'>annual inflation rate</div>
+      <div className='para-test'>Annual inflation rate</div>
       <Form.Item
       onChange={(event) => seta(event.target.value)}
       name="Year"
@@ -78,7 +78,7 @@ function Loans_qual(){
             // 年份正则化
               pattern: /^(0|[1-9]\d?|100)$/, 
               validateTrigger: 'onBlur',
-              message:'please input the year'
+              message:'please input the Annual inflation rate from 1-100'
           },
           { 
             required: true, 
@@ -99,8 +99,8 @@ function Loans_qual(){
       onChange={(event) => sett(event.target.value)}
       name="Number of installments"
       rules={[
-          {     //月份正则化
-              pattern: /^(0|[1-9]\d?|12)$/,
+          {     
+              pattern: /^\d+$/,
               validateTrigger: 'onBlur',
               message:'please input the Number of installments'
           },

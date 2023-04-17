@@ -201,3 +201,4 @@ def markup_percentage(price, cost):
     """
     markup_percentage = ((price - cost) / cost) * 100
     return round(markup_percentage, 2)
+

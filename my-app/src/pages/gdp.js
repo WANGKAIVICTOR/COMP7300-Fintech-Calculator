@@ -24,7 +24,7 @@ function Loans(){
 
 
     return (
-    <div className="login">
+    <div className="login-pages">
       <Card className="calculator-container">
           <h1 className="title">Configuration</h1>
           <Form validateTrigger={['onBlur', 'onChange']}
@@ -46,7 +46,7 @@ function Loans(){
         name="Capital"
         rules={[
             {
-            pattern: /^(0|[1-9]\d?|100)$/,   //正则化数字
+              pattern: /^\d+$/,  
             validateTrigger: 'onBlur',
             message:'please input the correct num'
             },
@@ -69,8 +69,8 @@ function Loans(){
       name="Year"
       rules={[
           { 
-            // 年份正则化
-              pattern: /^(0|[1-9]\d?|100)$/, 
+            
+              pattern: /^\d+$/, 
               validateTrigger: 'onBlur',
               message:'please input the year'
           },
@@ -86,17 +86,11 @@ function Loans(){
       </div>
       
 
-     
-    
-
-
           <Form.Item>
             <Button type="primary" htmlType="submit" size="large" >
                 Summit
             </Button>
           </Form.Item>
-
-
 
           <h1 className="title">Calculation Result</h1>
           <div className='input-container'>

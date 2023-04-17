@@ -19,9 +19,9 @@ function App() {
   return (
     <div>
       
-      <div className='chat'>
+      {/* <div className='chat'>
         <Livechat />
-      </div>
+      </div> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
