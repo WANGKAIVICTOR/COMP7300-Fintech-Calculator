@@ -8,23 +8,6 @@ function Component1() {
 
 
   const [userdata, setUserData] = useState([]);
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch('http://127.0.0.1:8000/data_explore');
-  //     const jsonData = await response.json();
-  //     setUserData(jsonData.data);
-  //     console.log(jsonData.data)
-  //   }
-  //   fetchData();
-  // }, []);
-
-  const config = {
-    userdata,
-    xField: 'name',
-    yField: 'value',
-    isStack: true,
-  };
-
 
   function _onMessageWasSent(message) {
     setMessageList([...messageList, message]);

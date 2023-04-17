@@ -12,7 +12,7 @@ function Chat() {
 
     const handleNewUserMessage = (newMessage) => {
         console.log(`New message incoming! ${newMessage}`);
-        fetch('https://c555-35-197-145-163.ngrok.io/', {
+        fetch('https://43c2-35-204-112-1.ngrok.io/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,8 +22,10 @@ function Chat() {
             body: JSON.stringify({ "prompt": newMessage, "history": history })
         })
             .then(response => response.json())
-            .then(resp => setHistory(resp['history']))
-            .then(resp => addResponseMessage(resp['response']))
+            .then(function (resp) {
+                setHistory(resp['history'])
+                addResponseMessage(resp['response']['result'])
+            })
             .catch(error => console.log(error))
     };
 
