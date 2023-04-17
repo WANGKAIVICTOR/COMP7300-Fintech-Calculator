@@ -339,6 +339,15 @@ def data_explore():
         session.close()
         logger.info("Counted the frequency of each methods")
 
+        key = result.keys()
+        value = result.values()
+        mid = []
+
+        for i in range(len(key)):
+            mid.append({"name":key[i],"value":value[i]})
+
+        result = {"data":mid}
+
         return Response(json.dumps(result), mimetype='application/json')
     except Exception as e:
         logger.error(e)
