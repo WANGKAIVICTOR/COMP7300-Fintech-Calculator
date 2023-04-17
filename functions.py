@@ -14,7 +14,7 @@ def market_news(category="forex"):
     return finnhub_client.general_news(category, min_id=0)[:10]
 
 
-def kelly(b, p, q):
+def kelly(p, a, b):
     """
     https://wiki.mbalib.com/wiki/%E5%87%AF%E5%88%A9%E5%85%AC%E5%BC%8F
     The Kelly formula is a formula that can be applied to investment funds and bets.
@@ -26,7 +26,32 @@ def kelly(b, p, q):
     An equivalent idea was proposed by Danny Bernoulli in 1738, but Bernoulli's work was not first translated into English until 1954.
     But for a one-time investor, choose the portfolio with the highest arithmetic average.
     """
+    """
+    使用方法
+    凯利公式计算器是一个寻找最佳投资比率的工具，这样当您知道投资资产的胜率和利润时，您将在重复投资时最大化利润。
 
+    胜利概率 : 输入获得投资回报的概率。
+    胜利时收益率 : 输入预期回报率。例如，如果您投资100并获得10，则回报率为10%。
+    失败时损失率 : 输入预期损失率。例如，如果您投资100并损失10，则损失率为10%。
+    最佳投资比重是指资本的理想投资比例。 例如，如果是 50%，理想情况下您应该每次投入 50% 的资金。 另一方面，100%或更多意味着杠杆投资。
+
+    凯利公式是
+    凯利公式是反复投资金额时，为了获得最高收益率的理论公式。 按照凯利公式决定投资规模，理论上可以取得最大的成果。
+
+    危险性
+    凯利公式明确要求在投资对象上获得收益的概率及其大小。 但是，在现实的投资中，不可能完全预测这一点。使用凯利公式的话，即使概率稍微变化，最佳投资资产规模也会发生很大的变化。因此，不能只依靠凯利公式来决定投资。
+
+    凯利公式的意义
+    凯利公式很有用，因为它表明您投资的资产的波动性越大，该资产的波动性就应该越大。 例如，即使您的盈亏比率相同，在 [胜利：+20%，失败：-10%] 种情况下，投资金额也应比 [胜利：+10%，失败：-5%] 种情况减少一半。
+
+    凯利公式
+    凯利公式
+    f : 最佳投资比重
+    p : 胜利概率
+    q : 失败概率 (q = 1-p)
+    a : 失败时损失率
+    b : 胜利时收益率
+    """
     """
     For example, if a game has a 40% (p=0.40) chance of winning and the odds are 2:1 (b=2), the gambler should bet (2 × 0.40-0.60)/2 = 10% of the money each time.
 
@@ -36,7 +61,7 @@ def kelly(b, p, q):
 
     f^*=16.6% is the most favorable percentage you can bet, and 16.6% is the percentage you can bet each time to maximize your returns. And that's assuming you have a positive expected value, which is bp-q. 0. In the coin toss case, the expected value =0.25 is positive.
     """
-    return round((b*p-q)/b, 6)
+    return round((p/a)-((100-p)/b), 6)*100
 
 
 def mixed_simple_interest(k, y, m, d, i):
@@ -138,6 +163,7 @@ def purchasing_power(initial_amount, annual_inflation_rate, time):
         ((100 / (100 + int(annual_inflation_rate))) ** int(time))
     return round(a, 2)
 
+
 def gdp_growth_rate(current_year_gdp, last_year_gdp):
     """
     Calculate the gdp growth rate
@@ -147,8 +173,10 @@ def gdp_growth_rate(current_year_gdp, last_year_gdp):
     Return:
         rate
     """
-    gdp_growth_rate = ((current_year_gdp - last_year_gdp) / last_year_gdp) * 100
-    return round(gdp_growth_rate,2)
+    gdp_growth_rate = (
+        (current_year_gdp - last_year_gdp) / last_year_gdp) * 100
+    return round(gdp_growth_rate, 2)
+
 
 def doubling_time(r):
     """
@@ -159,7 +187,8 @@ def doubling_time(r):
         time
     """
     t = math.log(2) / math.log(1 + (r / 100))
-    return round(t,2)
+    return round(t, 2)
+
 
 def markup_percentage(price, cost):
     """
@@ -171,4 +200,4 @@ def markup_percentage(price, cost):
         rate
     """
     markup_percentage = ((price - cost) / cost) * 100
-    return round(markup_percentage,2)
+    return round(markup_percentage, 2)
