@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Kellys from "./pages/kelly";
 import Main from "./pages/main/index";
 import Test from "./pages/test";
@@ -12,6 +12,7 @@ import GDP from "./pages/gdp"
 import Pincipal from "./pages/principal"
 import Percentage from "./pages/percentage"
 import './App.css';
+import Launcher from './components/Launcher'
 
 function App() {
   return (
@@ -26,11 +27,9 @@ function App() {
           <Route path="/loans" element={<Loans />} />
           <Route path="/loansequal" element={<Loansequal />} />
           <Route path="/purchasing_power" element={<Purchasingpower />} />
-
           <Route path="/gdp" element={<GDP />} />
           <Route path="/principal" element={<Pincipal />} />
           <Route path="/percentage" element={<Percentage />} />
-          
         </Routes>
       </BrowserRouter>
     </div>
