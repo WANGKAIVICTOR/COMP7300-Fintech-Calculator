@@ -3,6 +3,7 @@ import {  Card} from 'antd'
 import "./index.css";
 import Launcher from './../../components/Launcher'
 import  './../../styles';
+import Barchart from './barchart';
 
 function Component1() {
   const [messageList, setMessageList] = useState([]);
@@ -12,27 +13,25 @@ function Component1() {
   }
   
   function _sendMessage(text) {
-  if (text.length > 0) {
-  setMessageList([
-  ...messageList,
-  {
-  author: 'them',
-  type: 'text',
-  data: { text },
-  },
-  ]);
-  }
+    if (text.length > 0) {
+    setMessageList([
+    ...messageList,
+    {
+    author: 'them',
+    type: 'text',
+    data: { text },
+    },
+    ]);
+    }
   }
 
-  
   const [data, setData] = useState([]);
-
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("http://127.0.0.1:8000/market-news?category= general");
       const json = await response.json();
       setData(json);
-      console.log(json)
+      // console.log(json)
     }
     fetchData();
   }, []);
@@ -40,7 +39,6 @@ function Component1() {
 
   useEffect(() => {
     let interval;
-
     function startAnimation() {
       interval = setInterval(() => {
         const commentList = document.querySelector('.comment-list');
@@ -56,11 +54,10 @@ function Component1() {
         setTimeout(() => {
           commentList.insertBefore(items[items.length-1], items[0])
         }, 100);
-
-      }, 3500); // 每隔3秒钟滚动一次
+      }, 3000); // 每隔3秒钟滚动一次
     }
 
-    if (data.length > 0) {
+    if (!data || data.length === 0) {
       startAnimation(); // 启动滚动动画
     }
 
@@ -68,6 +65,7 @@ function Component1() {
       clearInterval(interval);
     };
   }, [data]);
+
 
   return (
     <div className="login">
@@ -84,6 +82,7 @@ function Component1() {
       showEmoji
       />
     </div>
+    
       <Card className="login-container">
         {/* <h1>这里是一个九宫格</h1> */}
         <div className="title-container">
@@ -102,6 +101,15 @@ function Component1() {
           <div className="bottom-container"><li><a className="gradient-button gradient-button-1" href='/kelly'>xxx</a></li></div>
         </div>
         
+        <div className="title-container">
+          <div className="News-title">User Data</div>
+        </div>
+        
+        <div className="login-container">
+          {/* 使用 .map() 函数遍历数据数组 */}
+          <Barchart  />
+          </div>
+
         <div className="title-container">
           <div className="News-title">News</div>
         </div>

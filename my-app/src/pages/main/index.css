@@ -100,10 +100,12 @@
 }
 
 .comment-list{
-    height: 140px;
+    height: 170px;
     overflow-y: hidden; /* 隐藏垂直滚动条 */
     position: relative; /* 设置父容器为相对定位 */
 }
+
+
 
  /* .list-item {
     position: absolute; 
