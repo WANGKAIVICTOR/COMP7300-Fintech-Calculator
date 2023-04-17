@@ -10,7 +10,7 @@ def market_news(category="forex"):
     """
     finnhub_client = finnhub.Client(
         api_key=config["FINNHUB"]["KEY"])
-    return finnhub_client.general_news(category, min_id=0)
+    return finnhub_client.general_news(category, min_id=0)[:10]
 
 
 def kelly(b, p, q):
@@ -99,7 +99,7 @@ def loan_principal_equal(k, y, t, i):
     for i in range(int(t)):
         each_time.append(
             round(Monthly_principal+(k-i*Monthly_principal)*rate, 2))
-    return each_time, round(interest,2), round(total,2)
+    return each_time, round(interest, 2), round(total, 2)
 
 
 def loans_equal_principal_and_interest(k, y, t, i):
@@ -117,8 +117,22 @@ def loans_equal_principal_and_interest(k, y, t, i):
         interest: interest
     """
     rate = i/(t/y)
-    # 贷款本金×[月利率×(1+月利率) ^ 还款月数]÷{[(1+月利率) ^ 还款月数]-1}
     each_time = k*(rate*(1+rate)**t)/((1+rate)**t-1)
     total = each_time*t
     interest = total - k
-    return round(each_time,2), round(interest,2), round(total,2)
+    return round(each_time, 2), round(interest, 2), round(total, 2)
+
+
+def purchasing_power(initial_amount, annual_inflation_rate, time):
+    """
+    Calculate the purchasing power
+    Para:
+        initial_amount: principal
+        annual_inflation_rate
+        time: years
+    return:
+        a: after x years, the money value
+    """
+    a = float(initial_amount) * \
+        ((100 / (100 + int(annual_inflation_rate))) ** int(time))
+    return round(a, 2)

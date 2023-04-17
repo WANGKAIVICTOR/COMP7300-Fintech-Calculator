@@ -7,6 +7,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import func
 import os
 import sys
 
@@ -64,6 +65,13 @@ class Loan(db.Model):
     rate = db.Column(db.Float)
     total = db.Column(db.Float)
 
+class Purchasing(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    initial_amount = db.Column(db.Float)
+    annual_inflation_rate = db.Column(db.Float)
+    time = db.Column(db.Float)
+    result = db.Column(db.Float)
 
 # Create table model
 with app.app_context():
@@ -278,6 +286,57 @@ def loan_principal_equal():
         logger.error(e)
         abort(500)
 
+@app.route('/purchasing_power', methods=['GET'])
+def purchasing_power():
+    try:
+        initial_amount = request.args.get("initial_amount")
+        annual_inflation_rate = request.args.get("annual_inflation_rate")
+        time = request.args.get("time")
+        value = functions.purchasing_power(initial_amount, annual_inflation_rate, time)
+
+        # insert to db
+        session = connection()
+        session.add(Purchasing(name='purchasing_power', initial_amount=initial_amount,
+                    annual_inflation_rate=annual_inflation_rate, time=time,result=value))
+        session.commit()
+        session.close()
+        logger.info("Inserted one purchasing_power entity.")
+        
+
+        # freeze json response without sorting
+        return Response(json.dumps({
+            "Tag": "mixed compound interest formula",
+            "initial_amount": initial_amount,
+            "annual_inflation_rate": annual_inflation_rate,
+            "time": time,
+            "value": value,
+        }), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
+
+@app.route('/data_explore', methods=['GET'])
+def data_explore():
+    """
+    Explore the issues people concerned
+    return:
+        data: dict data
+    """
+    try:
+        session = connection()
+        loan = session.query(Loan.name, func.count(Loan.name)).group_by(Loan.name).all()
+        kelly = session.query(Kelly.name, func.count(Kelly.name)).group_by(Kelly.name).all()
+        purchasing = session.query(Purchasing.name, func.count(Purchasing.name)).group_by(Purchasing.name).all()
+        deposit = session.query(Deposit.name, func.count(Deposit.name)).group_by(Deposit.name).all()
+        result = {}
+        result = dict(loan+kelly+purchasing+deposit)
+        session.close()
+        logger.info("Counted the frequency of each methods")
+
+        return Response(json.dumps(result), mimetype='application/json')
+    except Exception as e:
+        logger.error(e)
+        abort(500)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
