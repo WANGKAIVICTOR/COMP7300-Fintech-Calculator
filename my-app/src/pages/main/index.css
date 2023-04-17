@@ -5,14 +5,14 @@
     /* left: 0;
     top: 0; */
     background: center/cover url('login.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     background-repeat: repeat-y;
     background-attachment: fixed;
 }
 
 .main-pages {
-   
+
     height: 1000px;
     background: center/cover url('login.png');
     background-repeat: repeat;
@@ -23,8 +23,8 @@
 .login-pages {
     width: 100%;
     height: 100%;
-    position: absolute; 
- 
+    position: absolute;
+
     background-image: url('login.png');
     background-size: cover;
 }
@@ -36,7 +36,7 @@
     /* left: 0;
     top: 0; */
     background: center/cover url('login.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     background-repeat: repeat-y;
     background-attachment: fixed;
@@ -140,7 +140,61 @@
     /* 设置父容器为相对定位 */
 }
 
+.comment .text {
+    line-height: 20px;
+    padding: 2px 0;
+    font-size: 14px;
+    text-shadow: none;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
 
+.comment {
+    flex: 1;
+    position: relative;
+    margin-left: 35px;
+    padding: 22px 0 14px 0;
+    border-top: 1px solid #e5e9ef;
+}
+
+.user-head {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.comment .user {
+    color: #6d757a;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    padding-bottom: 4px;
+    display: block;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.info {
+    color: #99a2aa;
+    line-height: 26px;
+    font-size: 12px;
+}
+
+.time {
+    margin-right: 20px;
+}
+
+.list-item {
+    display: flex;
+}
+
+.user-face {
+    float: left;
+    margin: 7px 0 0 5px;
+    position: relative;
+}
 
 /* .list-item {
     position: absolute; 

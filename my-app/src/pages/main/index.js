@@ -4,28 +4,6 @@ import "./index.css";
 import BarChart from '../barchart';
 
 function Component1() {
-  const [messageList, setMessageList] = useState([]);
-
-
-  const [userdata, setUserData] = useState([]);
-
-  function _onMessageWasSent(message) {
-    setMessageList([...messageList, message]);
-  }
-
-  function _sendMessage(text) {
-    if (text.length > 0) {
-      setMessageList([
-        ...messageList,
-        {
-          author: 'them',
-          type: 'text',
-          data: { text },
-        },
-      ]);
-    }
-  }
-
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
